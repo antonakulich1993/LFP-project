@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		319E6E03608965C0B55EA5DF /* Pods_LFP_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B5FB8A2F349E305E889699 /* Pods_LFP_project.framework */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
-		FADACCF62767795B00DC77F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF52767795B00DC77F1 /* SceneDelegate.swift */; };
 		FADACCF82767795B00DC77F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF72767795B00DC77F1 /* ViewController.swift */; };
-		FADACCFB2767795B00DC77F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCF92767795B00DC77F1 /* Main.storyboard */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
+		FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACD0927677CAE00DC77F1 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33B5FB8A2F349E305E889699 /* Pods_LFP_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFP_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		490CF065FE64923D46D92851 /* Pods-LFP-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFP-project.debug.xcconfig"; path = "Target Support Files/Pods-LFP-project/Pods-LFP-project.debug.xcconfig"; sourceTree = "<group>"; };
+		EA97132866A7B22AA494B031 /* Pods-LFP-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFP-project.release.xcconfig"; path = "Target Support Files/Pods-LFP-project/Pods-LFP-project.release.xcconfig"; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FADACCF52767795B00DC77F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FADACCF72767795B00DC77F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FADACCFA2767795B00DC77F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADACCFF2767795D00DC77F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADACD012767795D00DC77F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADACD0927677CAE00DC77F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319E6E03608965C0B55EA5DF /* Pods_LFP_project.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03D5A531E994C09B71DA0C4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33B5FB8A2F349E305E889699 /* Pods_LFP_project.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE1FBFE50A6789557CBD9AA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				490CF065FE64923D46D92851 /* Pods-LFP-project.debug.xcconfig */,
+				EA97132866A7B22AA494B031 /* Pods-LFP-project.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FADACCE72767795B00DC77F1 = {
 			isa = PBXGroup;
 			children = (
 				FADACCF22767795B00DC77F1 /* LFP-project */,
 				FADACCF12767795B00DC77F1 /* Products */,
+				AE1FBFE50A6789557CBD9AA7 /* Pods */,
+				03D5A531E994C09B71DA0C4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +78,30 @@
 		FADACCF22767795B00DC77F1 /* LFP-project */ = {
 			isa = PBXGroup;
 			children = (
+				FADACD0727677C8400DC77F1 /* ViewControllers */,
 				FADACCF32767795B00DC77F1 /* AppDelegate.swift */,
-				FADACCF52767795B00DC77F1 /* SceneDelegate.swift */,
 				FADACCF72767795B00DC77F1 /* ViewController.swift */,
-				FADACCF92767795B00DC77F1 /* Main.storyboard */,
 				FADACCFC2767795D00DC77F1 /* Assets.xcassets */,
 				FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */,
 				FADACD012767795D00DC77F1 /* Info.plist */,
 			);
 			path = "LFP-project";
+			sourceTree = "<group>";
+		};
+		FADACD0727677C8400DC77F1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FADACD0827677C9300DC77F1 /* LoginViewContoller */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FADACD0827677C9300DC77F1 /* LoginViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				FADACD0927677CAE00DC77F1 /* LoginViewController.swift */,
+			);
+			path = LoginViewContoller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FADACD042767795D00DC77F1 /* Build configuration list for PBXNativeTarget "LFP-project" */;
 			buildPhases = (
+				A9609A17B7B5AD547F122BFE /* [CP] Check Pods Manifest.lock */,
 				FADACCEC2767795B00DC77F1 /* Sources */,
 				FADACCED2767795B00DC77F1 /* Frameworks */,
 				FADACCEE2767795B00DC77F1 /* Resources */,
+				050861A2C99A9308D0A4CC9C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +166,67 @@
 			files = (
 				FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */,
 				FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */,
-				FADACCFB2767795B00DC77F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		050861A2C99A9308D0A4CC9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LFP-project/Pods-LFP-project-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LFP-project/Pods-LFP-project-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LFP-project/Pods-LFP-project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9609A17B7B5AD547F122BFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LFP-project-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FADACCEC2767795B00DC77F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
 				FADACCF82767795B00DC77F1 /* ViewController.swift in Sources */,
 				FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */,
-				FADACCF62767795B00DC77F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FADACCF92767795B00DC77F1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FADACCFA2767795B00DC77F1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +356,7 @@
 		};
 		FADACD052767795D00DC77F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 490CF065FE64923D46D92851 /* Pods-LFP-project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,7 +367,6 @@
 				INFOPLIST_FILE = "LFP-project/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +384,7 @@
 		};
 		FADACD062767795D00DC77F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA97132866A7B22AA494B031 /* Pods-LFP-project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,7 +395,6 @@
 				INFOPLIST_FILE = "LFP-project/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
