@@ -8,16 +8,6 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-    
-    let registrationView: UIView = {
-        let registrationView = UIView()
-        registrationView.backgroundColor = .systemGray6
-        registrationView.layer.shadowOffset = CGSize(width: 1, height: 1)
-        registrationView.layer.shadowRadius = 5
-        registrationView.layer.shadowOpacity = 0.3
-        return registrationView
-    }()
-    
     let infoLabel: UILabel = {
         let infoLabel = UILabel()
         infoLabel.text = "Все поля обязательны к заполнению *"
@@ -32,22 +22,33 @@ class RegistrationViewController: UIViewController {
     let usernameField: UITextField = {
         let usernameField = UITextField()
         usernameField.borderStyle = .roundedRect
-        usernameField.placeholder = "Имя пользователя"
+        usernameField.attributedPlaceholder = NSAttributedString(string: "Имя пользователя",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        usernameField.textColor = .black
+        usernameField.tintColor = .black
+        usernameField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
         return usernameField
     }()
     
     let passwordField: UITextField = {
         let passwordField = UITextField()
         passwordField.borderStyle = .roundedRect
-        passwordField.placeholder = "Пароль"
-        passwordField.isSecureTextEntry = true
+        passwordField.attributedPlaceholder = NSAttributedString(string: "Имя пользователя",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        passwordField.textColor = .black
+        passwordField.tintColor = .black
+        passwordField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
         return passwordField
     }()
     
     let repeatPasswordField: UITextField = {
         let repeatPasswordField = UITextField()
         repeatPasswordField.borderStyle = .roundedRect
-        repeatPasswordField.placeholder = "Повторите пароль"
+        repeatPasswordField.attributedPlaceholder = NSAttributedString(string: "Имя пользователя",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        repeatPasswordField.textColor = .black
+        repeatPasswordField.tintColor = .black
+        repeatPasswordField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
         repeatPasswordField.isSecureTextEntry = true
         return repeatPasswordField
     }()
@@ -68,46 +69,58 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Регистрация"
+        hideKeyboardWhenTappedAround()
         view.backgroundColor = .white
     }
     
     func configuerInterface() {
-        view.addSubview(registrationView)
-        registrationView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 300, height: 400))
-            make.center.equalToSuperview()
-        }
-        registrationView.addSubview(infoLabel)
-        infoLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.trailing.equalTo(registrationView).inset(16)
-        }
-        registrationView.addSubview(usernameField)
-        usernameField.snp.makeConstraints { make in
-            make.top.equalTo(infoLabel.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-        registrationView.addSubview(passwordField)
-        passwordField.snp.makeConstraints { make in
-            make.top.equalTo(usernameField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-        registrationView.addSubview(repeatPasswordField)
-        repeatPasswordField.snp.makeConstraints { make in
-            make.top.equalTo(passwordField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-        registrationView.addSubview(registrationButton)
-        registrationButton.snp.makeConstraints { make in
-            make.top.equalTo(repeatPasswordField.snp.bottom).offset(40)
-            make.leading.trailing.equalToSuperview().inset(40)
-        }
+//        view.addSubview(registrationView)
+//        registrationView.snp.makeConstraints { make in
+//            make.size.equalTo(CGSize(width: 300, height: 400))
+//            make.center.equalToSuperview()
+//        }
+//        registrationView.addSubview(infoLabel)
+//        infoLabel.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(20)
+//            make.leading.trailing.equalTo(registrationView).inset(16)
+//        }
+//        registrationView.addSubview(usernameField)
+//        usernameField.snp.makeConstraints { make in
+//            make.top.equalTo(infoLabel.snp.bottom).offset(30)
+//            make.leading.trailing.equalToSuperview().inset(16)
+//        }
+//        registrationView.addSubview(passwordField)
+//        passwordField.snp.makeConstraints { make in
+//            make.top.equalTo(usernameField.snp.bottom).offset(30)
+//            make.leading.trailing.equalToSuperview().inset(16)
+//        }
+//        registrationView.addSubview(repeatPasswordField)
+//        repeatPasswordField.snp.makeConstraints { make in
+//            make.top.equalTo(passwordField.snp.bottom).offset(30)
+//            make.leading.trailing.equalToSuperview().inset(16)
+//        }
+//        registrationView.addSubview(registrationButton)
+//        registrationButton.snp.makeConstraints { make in
+//            make.top.equalTo(repeatPasswordField.snp.bottom).offset(40)
+//            make.leading.trailing.equalToSuperview().inset(40)
+//        }
     }
-    
+
     @objc  func registrationAction() {
         if passwordField.text == repeatPasswordField.text {
             navigationController?.popViewController(animated: true)
         }
     }
 }
+
+extension RegistrationViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(RegistrationViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
