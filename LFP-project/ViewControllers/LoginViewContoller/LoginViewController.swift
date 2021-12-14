@@ -94,12 +94,12 @@ class LoginViewController: UIViewController {
     }
     
     @objc func loginAction() {
-        passwordField.text = "hui"
+        passwordField.text = "312"
         
     }
     
     @objc func registrationAction() {
-        usernameField.text = "penis"
+        usernameField.text = "123"
         
     }
 }
