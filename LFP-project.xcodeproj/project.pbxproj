@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		319E6E03608965C0B55EA5DF /* Pods_LFP_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B5FB8A2F349E305E889699 /* Pods_LFP_project.framework */; };
+		FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCF82767795B00DC77F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF72767795B00DC77F1 /* ViewController.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 		33B5FB8A2F349E305E889699 /* Pods_LFP_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFP_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		490CF065FE64923D46D92851 /* Pods-LFP-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFP-project.debug.xcconfig"; path = "Target Support Files/Pods-LFP-project/Pods-LFP-project.debug.xcconfig"; sourceTree = "<group>"; };
 		EA97132866A7B22AA494B031 /* Pods-LFP-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFP-project.release.xcconfig"; path = "Target Support Files/Pods-LFP-project/Pods-LFP-project.release.xcconfig"; sourceTree = "<group>"; };
+		FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCF72767795B00DC77F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				FADACD0927677CAE00DC77F1 /* LoginViewController.swift */,
+				FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */,
 			);
 			path = LoginViewContoller;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
 				FADACCF82767795B00DC77F1 /* ViewController.swift in Sources */,
+				FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */,
 				FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
