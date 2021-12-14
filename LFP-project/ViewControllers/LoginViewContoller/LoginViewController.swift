@@ -25,15 +25,14 @@ class LoginViewController: UIViewController {
         return enterLabel
     }()
     
-    
     let usernameField: UITextField = {
         let usernameField = UITextField()
         usernameField.borderStyle = .roundedRect
         usernameField.attributedPlaceholder = NSAttributedString(string: "Имя пользователя",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         usernameField.textColor = .black
-        usernameField.tintColor = .black
         usernameField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
+        usernameField.layer.borderColor = CGColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         return usernameField
     }()
     
@@ -42,9 +41,10 @@ class LoginViewController: UIViewController {
         passwordField.borderStyle = .roundedRect
         passwordField.attributedPlaceholder = NSAttributedString(string: "Пароль",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        passwordField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
         passwordField.textColor = .black
         passwordField.isSecureTextEntry = true
-        passwordField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
+        passwordField.layer.borderColor = CGColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         return passwordField
     }()
     
@@ -54,12 +54,14 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = UIColor(red: 0.16, green: 0.17, blue: 0.25, alpha: 1.0)
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
         loginButton.layer.cornerRadius = 8
+        loginButton.showsTouchWhenHighlighted = true
         return loginButton
     }()
     
     let questionLabel: UILabel = {
         let questionLabel = UILabel()
         questionLabel.text = "Впервые у нас?"
+        questionLabel.textColor = .black
         return questionLabel
     }()
     
@@ -69,6 +71,7 @@ class LoginViewController: UIViewController {
         registrationButton.setTitle("Зарегистрироваться", for: .normal)
         registrationButton.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
         registrationButton.layer.cornerRadius = 8
+        registrationButton.showsTouchWhenHighlighted = true
         return registrationButton
     }()
     
