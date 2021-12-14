@@ -29,7 +29,10 @@ class LoginViewController: UIViewController {
     let usernameField: UITextField = {
         let usernameField = UITextField()
         usernameField.borderStyle = .roundedRect
-        usernameField.placeholder = "Имя пользователя"
+        usernameField.attributedPlaceholder = NSAttributedString(string: "Имя пользователя",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        usernameField.textColor = .black
+        usernameField.tintColor = .black
         usernameField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
         return usernameField
     }()
@@ -37,7 +40,9 @@ class LoginViewController: UIViewController {
     let passwordField: UITextField = {
         let passwordField = UITextField()
         passwordField.borderStyle = .roundedRect
-        passwordField.placeholder = "Пароль"
+        passwordField.attributedPlaceholder = NSAttributedString(string: "Пароль",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        passwordField.textColor = .black
         passwordField.isSecureTextEntry = true
         passwordField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
         return passwordField
@@ -74,6 +79,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
     }
     
     func configureIntreface() {
@@ -129,6 +135,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
     @objc func loginAction() {
         
     }
@@ -136,5 +143,16 @@ class LoginViewController: UIViewController {
     @objc func registrationAction() {
         let registrationViewController = RegistrationViewController()
         navigationController?.pushViewController(registrationViewController, animated: true)
+    }
+}
+
+extension LoginViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
