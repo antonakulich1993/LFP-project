@@ -9,15 +9,15 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     
-    let infoLabel: UILabel = {
+    let registrationLabel: UILabel = {
         let infoLabel = UILabel()
-        infoLabel.text = "Все поля обязательны к заполнению"
+        infoLabel.text = "Регистрация"
         infoLabel.numberOfLines = 0
         infoLabel.lineBreakMode = .byWordWrapping
         infoLabel.numberOfLines = 0
         infoLabel.textAlignment = .center
         infoLabel.textColor = .black
-        infoLabel.font = infoLabel.font.withSize(20)
+        infoLabel.font = infoLabel.font.withSize(28)
         return infoLabel
     }()
     
@@ -33,6 +33,7 @@ class RegistrationViewController: UIViewController {
         passwordField.attributedPlaceholder = NSAttributedString(string: "Пароль",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         passwordField.isSecureTextEntry = true
+
         return passwordField
     }()
     
@@ -45,8 +46,16 @@ class RegistrationViewController: UIViewController {
         return repeatPasswordField
     }()
     
+    let infoLabel: UILabel = {
+        let infoLabel = UILabel()
+        infoLabel.text = "*все поля обязательны для заполнения"
+        infoLabel.textColor = .systemGray
+        infoLabel.textAlignment = .center
+        return infoLabel
+    }()
+    
     let registrationButton: DarkBlueButton = {
-        let registrationButton = DarkBlueButton(title: "Зарегестрироваться")
+        let registrationButton = DarkBlueButton(title: "Зарегистрироваться")
         registrationButton.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
         return registrationButton
     }()
@@ -63,38 +72,48 @@ class RegistrationViewController: UIViewController {
     }
     
     func configuerInterface() {
-        view.addSubview(infoLabel)
-        infoLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(120)
+        view.addSubview(registrationLabel)
+        registrationLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(147)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(usernameField)
         usernameField.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 358, height: 54))
-            make.top.equalTo(infoLabel.snp.bottom).offset(30)
+            make.top.equalTo(registrationLabel.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         view.addSubview(passwordField)
         passwordField.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 358, height: 54))
-            make.top.equalTo(usernameField.snp.bottom).offset(20)
+            make.top.equalTo(usernameField.snp.bottom).offset(34)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(repeatPasswordField)
         repeatPasswordField.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 358, height: 54))
-            make.top.equalTo(passwordField.snp.bottom).offset(20)
+            make.top.equalTo(passwordField.snp.bottom).offset(34)
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        view.addSubview(infoLabel)
+        infoLabel.snp.makeConstraints { make in
+            make.top.equalTo(repeatPasswordField.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(registrationButton)
         registrationButton.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 358, height: 54))
-            make.top.equalTo(repeatPasswordField.snp.bottom).offset(20)
+            make.top.equalTo(infoLabel.snp.bottom).offset(34)
             make.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        
+     
+
     }
 
     @objc  func registrationAction() {

@@ -52,12 +52,13 @@ class LoginViewController: UIViewController {
     let questionLabel: UILabel = {
         let questionLabel = UILabel()
         questionLabel.text = "Впервые у нас?"
-        questionLabel.textColor = .black
+        questionLabel.textColor = .systemGray
         return questionLabel
     }()
     
     let registrationButton: UIButton = {
         let registrationButton = UIButton()
+        registrationButton.sizeThatFits(CGSize(width: 358, height: 54))
         registrationButton.backgroundColor = UIColor(red: 0.58, green: 0.59, blue: 0.69, alpha: 1.0)
         registrationButton.setTitle("Зарегистрироваться", for: .normal)
         registrationButton.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
