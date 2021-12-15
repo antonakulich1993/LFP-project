@@ -118,6 +118,32 @@ class RegistrationViewController: UIViewController {
 
     @objc  func registrationAction() {
         if passwordField.text == repeatPasswordField.text {
+            
+            let parameters = [
+                "username": "\(usernameField.text)",
+                "password": "\(passwordField.text)"
+            ]
+            
+            guard let url = URL(string: "https://lfp.monster/api/account/register") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+            request.httpBody = httpBody
+            
+            let session = URLSession.shared
+            session.dataTask(with: request) { data, response, error in
+                if let response = response {
+                    print(response)
+                }
+                if let data = data {
+                    do {
+                        let json =  try JSONSerialization.data(withJSONObject: data, options: [])
+                        print(json)
+                    } catch {
+                        
+                    }
+                }
+            }.resume()
             navigationController?.popViewController(animated: true)
         }
     }

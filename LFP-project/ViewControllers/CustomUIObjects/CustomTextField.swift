@@ -22,6 +22,9 @@ class CustomTextField: UITextField {
         textColor = .black
         backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
         layer.borderColor = CGColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
+        returnKeyType = UIReturnKeyType.done
+        autocorrectionType = UITextAutocorrectionType.no
+        
     }
     required init?(coder: NSCoder) {
         fatalError()
