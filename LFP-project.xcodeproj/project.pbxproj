@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		319E6E03608965C0B55EA5DF /* Pods_LFP_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B5FB8A2F349E305E889699 /* Pods_LFP_project.framework */; };
 		FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */; };
+		FA3D35292769F53F009DFCBF /* DarkBlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D35282769F53F009DFCBF /* DarkBlueButton.swift */; };
+		FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D352A2769F8B1009DFCBF /* CustomTextField.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCF82767795B00DC77F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF72767795B00DC77F1 /* ViewController.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 		490CF065FE64923D46D92851 /* Pods-LFP-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFP-project.debug.xcconfig"; path = "Target Support Files/Pods-LFP-project/Pods-LFP-project.debug.xcconfig"; sourceTree = "<group>"; };
 		EA97132866A7B22AA494B031 /* Pods-LFP-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFP-project.release.xcconfig"; path = "Target Support Files/Pods-LFP-project/Pods-LFP-project.release.xcconfig"; sourceTree = "<group>"; };
 		FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		FA3D35282769F53F009DFCBF /* DarkBlueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkBlueButton.swift; sourceTree = "<group>"; };
+		FA3D352A2769F8B1009DFCBF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCF72767795B00DC77F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA3D35272769F529009DFCBF /* CustomUIObjects */ = {
+			isa = PBXGroup;
+			children = (
+				FA3D35282769F53F009DFCBF /* DarkBlueButton.swift */,
+				FA3D352A2769F8B1009DFCBF /* CustomTextField.swift */,
+			);
+			path = CustomUIObjects;
+			sourceTree = "<group>";
+		};
 		FADACCE72767795B00DC77F1 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +106,7 @@
 		FADACD0727677C8400DC77F1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA3D35272769F529009DFCBF /* CustomUIObjects */,
 				FADACD0827677C9300DC77F1 /* LoginViewContoller */,
 			);
 			path = ViewControllers;
@@ -221,7 +235,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3D35292769F53F009DFCBF /* DarkBlueButton.swift in Sources */,
 				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
+				FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */,
 				FADACCF82767795B00DC77F1 /* ViewController.swift in Sources */,
 				FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */,
 				FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */,
