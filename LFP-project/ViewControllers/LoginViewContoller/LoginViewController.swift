@@ -20,40 +20,31 @@ class LoginViewController: UIViewController {
     let enterLabel: UILabel = {
         let enterLabel = UILabel()
         enterLabel.text = "Вход"
+        enterLabel.textColor = .black
         enterLabel.font = enterLabel.font.withSize(28)
         enterLabel.lineBreakMode = .byWordWrapping
         return enterLabel
     }()
     
-    let usernameField: UITextField = {
-        let usernameField = UITextField()
-        usernameField.borderStyle = .roundedRect
+    let usernameField: CustomTextField = {
+        let usernameField = CustomTextField()
         usernameField.attributedPlaceholder = NSAttributedString(string: "Имя пользователя",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        usernameField.textColor = .black
-        usernameField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
-        usernameField.layer.borderColor = CGColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         return usernameField
     }()
     
-    let passwordField: UITextField = {
-        let passwordField = UITextField()
-        passwordField.borderStyle = .roundedRect
+    let passwordField: CustomTextField = {
+        let passwordField = CustomTextField()
         passwordField.attributedPlaceholder = NSAttributedString(string: "Пароль",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         passwordField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
-        passwordField.textColor = .black
         passwordField.isSecureTextEntry = true
-        passwordField.layer.borderColor = CGColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         return passwordField
     }()
     
-    let loginButton: UIButton = {
-        let loginButton = UIButton()
-        loginButton.setTitle("Войти", for: .normal)
-        loginButton.backgroundColor = UIColor(red: 0.16, green: 0.17, blue: 0.25, alpha: 1.0)
+    let loginButton: DarkBlueButton = {
+        let loginButton = DarkBlueButton(title: "Войти")
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
-        loginButton.layer.cornerRadius = 8
         loginButton.showsTouchWhenHighlighted = true
         return loginButton
     }()
