@@ -71,23 +71,27 @@ class RegistrationViewController: UIViewController {
         
         view.addSubview(usernameField)
         usernameField.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 358, height: 54))
             make.top.equalTo(infoLabel.snp.bottom).offset(30)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         view.addSubview(passwordField)
         passwordField.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 358, height: 54))
             make.top.equalTo(usernameField.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(repeatPasswordField)
         repeatPasswordField.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 358, height: 54))
             make.top.equalTo(passwordField.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(registrationButton)
         registrationButton.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 358, height: 54))
             make.top.equalTo(repeatPasswordField.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(16)
         }
