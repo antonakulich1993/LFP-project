@@ -82,35 +82,36 @@ class LoginViewController: UIViewController {
         
         view.addSubview(logoImage)
         logoImage.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 230, height: 160))
+            make.height.equalTo(160)
             make.top.equalToSuperview().offset(80)
             make.leading.trailing.equalToSuperview().inset(80)
         }
         
         view.addSubview(enterLabel)
         enterLabel.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 63, height: 33))
+            make.height.equalTo(33)
+            make.width.equalTo(63)
             make.top.equalTo(logoImage.snp.bottom).offset(44)
             make.leading.equalToSuperview().inset(164)
         }
         
         view.addSubview(usernameField)
         usernameField.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 358, height: 54))
+            make.height.equalTo(54)
             make.top.equalTo(enterLabel.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(passwordField)
         passwordField.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 358, height: 54))
+            make.height.equalTo(54)
             make.top.equalTo(usernameField.snp.bottom).offset(34)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 358, height: 54))
+            make.height.equalTo(54)
             make.top.equalTo(passwordField.snp.bottom).offset(28)
             make.leading.trailing.equalToSuperview().inset(16)
 
@@ -124,7 +125,7 @@ class LoginViewController: UIViewController {
         
         view.addSubview(registrationButton)
         registrationButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 358, height: 54))
+            make.height.equalTo(54)
             make.top.equalTo(questionLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(16)
         }

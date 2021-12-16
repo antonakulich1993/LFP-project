@@ -80,20 +80,20 @@ class RegistrationViewController: UIViewController {
         
         view.addSubview(usernameField)
         usernameField.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 358, height: 54))
+            make.height.equalTo(54)
             make.top.equalTo(registrationLabel.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         view.addSubview(passwordField)
         passwordField.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 358, height: 54))
+            make.height.equalTo(54)
             make.top.equalTo(usernameField.snp.bottom).offset(34)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         view.addSubview(repeatPasswordField)
         repeatPasswordField.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 358, height: 54))
+            make.height.equalTo(54)
             make.top.equalTo(passwordField.snp.bottom).offset(34)
             make.leading.trailing.equalToSuperview().inset(16)
         }
@@ -106,7 +106,7 @@ class RegistrationViewController: UIViewController {
         
         view.addSubview(registrationButton)
         registrationButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 358, height: 54))
+            make.height.equalTo(54)
             make.top.equalTo(infoLabel.snp.bottom).offset(34)
             make.leading.trailing.equalToSuperview().inset(16)
         }
@@ -126,6 +126,7 @@ class RegistrationViewController: UIViewController {
             
             guard let url = URL(string: "https://lfp.monster/api/account/register") else { return }
             var request = URLRequest(url: url)
+            request.setValue("application/json", forHTTPHeaderField: "Content-type")
             request.httpMethod = "POST"
             guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
             request.httpBody = httpBody
