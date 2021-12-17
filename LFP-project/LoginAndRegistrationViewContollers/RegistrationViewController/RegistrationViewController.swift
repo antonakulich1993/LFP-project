@@ -124,7 +124,6 @@ class RegistrationViewController: UIViewController {
             var request = URLRequest(url: url)
             request.setValue("application/json", forHTTPHeaderField: "Content-type")
             request.httpMethod = "POST"
-            
             guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
             request.httpBody = httpBody
             
@@ -137,11 +136,11 @@ class RegistrationViewController: UIViewController {
                 guard httpResponse.statusCode == 201 else {
                     return print("Error: \(httpResponse.statusCode)")
                 }
-                do {
-                    let json =  try JSONSerialization.data(withJSONObject: data, options: [])
-                    print(json)
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                guard let json = json else { return }
+                print(json)
+                DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
-                } catch {
                 }
             }.resume()
         }

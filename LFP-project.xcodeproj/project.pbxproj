@@ -13,7 +13,6 @@
 		FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D352A2769F8B1009DFCBF /* CustomTextField.swift */; };
 		FA3D3558276C7682009DFCBF /* RegisrationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D3557276C7682009DFCBF /* RegisrationResponseModel.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
-		FADACCF82767795B00DC77F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF72767795B00DC77F1 /* ViewController.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
 		FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACD0927677CAE00DC77F1 /* LoginViewController.swift */; };
@@ -29,7 +28,6 @@
 		FA3D3557276C7682009DFCBF /* RegisrationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisrationResponseModel.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FADACCF72767795B00DC77F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADACCFF2767795D00DC77F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADACD012767795D00DC77F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +80,14 @@
 			path = ModelsForRespones;
 			sourceTree = "<group>";
 		};
+		FA3D3559276C7DDF009DFCBF /* RegistrationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */,
+			);
+			path = RegistrationViewController;
+			sourceTree = "<group>";
+		};
 		FADACCE72767795B00DC77F1 = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +109,10 @@
 		FADACCF22767795B00DC77F1 /* LFP-project */ = {
 			isa = PBXGroup;
 			children = (
+				FA3D35272769F529009DFCBF /* CustomUIObjects */,
 				FA3D3556276C766B009DFCBF /* ModelsForRespones */,
-				FADACD0727677C8400DC77F1 /* ViewControllers */,
+				FADACD0727677C8400DC77F1 /* LoginAndRegistrationViewContollers */,
 				FADACCF32767795B00DC77F1 /* AppDelegate.swift */,
-				FADACCF72767795B00DC77F1 /* ViewController.swift */,
 				FADACCFC2767795D00DC77F1 /* Assets.xcassets */,
 				FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */,
 				FADACD012767795D00DC77F1 /* Info.plist */,
@@ -114,20 +120,19 @@
 			path = "LFP-project";
 			sourceTree = "<group>";
 		};
-		FADACD0727677C8400DC77F1 /* ViewControllers */ = {
+		FADACD0727677C8400DC77F1 /* LoginAndRegistrationViewContollers */ = {
 			isa = PBXGroup;
 			children = (
-				FA3D35272769F529009DFCBF /* CustomUIObjects */,
+				FA3D3559276C7DDF009DFCBF /* RegistrationViewController */,
 				FADACD0827677C9300DC77F1 /* LoginViewContoller */,
 			);
-			path = ViewControllers;
+			path = LoginAndRegistrationViewContollers;
 			sourceTree = "<group>";
 		};
 		FADACD0827677C9300DC77F1 /* LoginViewContoller */ = {
 			isa = PBXGroup;
 			children = (
 				FADACD0927677CAE00DC77F1 /* LoginViewController.swift */,
-				FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */,
 			);
 			path = LoginViewContoller;
 			sourceTree = "<group>";
@@ -250,7 +255,6 @@
 				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
 				FA3D3558276C7682009DFCBF /* RegisrationResponseModel.swift in Sources */,
 				FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */,
-				FADACCF82767795B00DC77F1 /* ViewController.swift in Sources */,
 				FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */,
 				FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */,
 			);
