@@ -33,15 +33,15 @@ class RegistrationViewController: UIViewController {
         passwordField.attributedPlaceholder = NSAttributedString(string: "Пароль",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         passwordField.isSecureTextEntry = true
-
+        
         return passwordField
     }()
     
     let repeatPasswordField: CustomTextField = {
         let repeatPasswordField = CustomTextField()
-       
+        
         repeatPasswordField.attributedPlaceholder = NSAttributedString(string: "Подтвердите пароль",
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+                                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         repeatPasswordField.isSecureTextEntry = true
         return repeatPasswordField
     }()
@@ -110,42 +110,40 @@ class RegistrationViewController: UIViewController {
             make.top.equalTo(infoLabel.snp.bottom).offset(34)
             make.leading.trailing.equalToSuperview().inset(16)
         }
-        
-        
-     
-
     }
-
+    
     @objc  func registrationAction() {
         if passwordField.text == repeatPasswordField.text {
-            
+            guard let username = usernameField.text else { return }
+            guard let password = passwordField.text else { return }
             let parameters = [
-                "username": "\(usernameField.text)",
-                "password": "\(passwordField.text)"
+                "username": "\(username)",
+                "password": "\(password)"
             ]
-            
-            guard let url = URL(string: "https://lfp.monster/api/account/register") else { return }
+            guard let url = URL(string: "https://lfp.monster/api/account/register/") else { return }
             var request = URLRequest(url: url)
             request.setValue("application/json", forHTTPHeaderField: "Content-type")
             request.httpMethod = "POST"
+            
             guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
             request.httpBody = httpBody
             
             let session = URLSession.shared
             session.dataTask(with: request) { data, response, error in
-                if let response = response {
-                    print(response)
+                guard let data = data  else { return }
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    return print("Error")
                 }
-                if let data = data {
-                    do {
-                        let json =  try JSONSerialization.data(withJSONObject: data, options: [])
-                        print(json)
-                    } catch {
-                        
-                    }
+                guard httpResponse.statusCode == 201 else {
+                    return print("Error: \(httpResponse.statusCode)")
+                }
+                do {
+                    let json =  try JSONSerialization.data(withJSONObject: data, options: [])
+                    print(json)
+                    self.navigationController?.popViewController(animated: true)
+                } catch {
                 }
             }.resume()
-            navigationController?.popViewController(animated: true)
         }
     }
 }
