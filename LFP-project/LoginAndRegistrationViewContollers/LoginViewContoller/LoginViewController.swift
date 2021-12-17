@@ -133,7 +133,31 @@ class LoginViewController: UIViewController {
     
     
     @objc func loginAction() {
+        guard let username = usernameField.text else { return }
+        guard let password = passwordField.text else { return }
         
+        let parameters = [
+            "username": "\(username)",
+            "password": "\(password)"
+        ]
+        guard let url = URL(string: "https://lfp.monster/api/account/token-auth/") else { return }
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-type")
+        request.httpMethod = "POST"
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { data, response, error in
+            guard let data = data else { return }
+            guard let httpResponse = response as? HTTPURLResponse else { return print(response) }
+            guard httpResponse.statusCode == 200 else {
+                return print("Error: \(httpResponse.statusCode)")
+            }
+            let result = try? JSONSerialization.jsonObject(with: data, options: [])
+            guard let result = result else { return }
+            print(result)
+        }.resume()
     }
     
     @objc func registrationAction() {
