@@ -136,9 +136,9 @@ class RegistrationViewController: UIViewController {
                 guard httpResponse.statusCode == 201 else {
                     return print("Error: \(httpResponse.statusCode)")
                 }
-                let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                guard let json = json else { return }
-                print(json)
+                let result = try? JSONSerialization.jsonObject(with: data, options: [])
+                guard let result = result else { return }
+                print(result)
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                 }
