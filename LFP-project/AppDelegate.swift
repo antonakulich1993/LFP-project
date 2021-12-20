@@ -14,7 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         window?.makeKeyAndVisible()
+        subcribeNotification()
         return true
     }
+    
+    func subcribeNotification() {
+        func subscribeNotification() {
+            NotificationCenter.default.addObserver(self, selector: #selector(changeMainScreen),
+                                                   name: Notification.Name.loginDidSuccess,
+                                                   object: nil)
+        }
+    }
+    @objc func changeMainScreen() {
+        window?.rootViewController = TabBarControllers(nibName: String(describing: TabBarControllers.self), bundle: nil)
+        window?.makeKeyAndVisible()
+    }
 }
-
