@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     @objc func changeMainScreen() {
-        window?.rootViewController = TabBarControllers(nibName: String(describing: TabBarControllers.self), bundle: nil)
+        window?.rootViewController = TabBarControllers()
         window?.makeKeyAndVisible()
     }
 }

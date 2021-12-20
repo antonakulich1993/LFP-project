@@ -20,11 +20,11 @@ class TabBarControllers: UITabBarController {
         let first = UINavigationController(rootViewController: AllPartiesViewController())
         first.tabBarItem = firstItem
         
-        let secondItem = UITabBarItem(title: "1", image: UIImage(systemName: "person"), tag: 0)
+        let secondItem = UITabBarItem(title: "2", image: UIImage(systemName: "person"), tag: 1)
         let second = UINavigationController(rootViewController: AddPartyViewController())
         second.tabBarItem = secondItem
         
-        let thirdItem = UITabBarItem(title: "1", image: UIImage(systemName: "person"), tag: 0)
+        let thirdItem = UITabBarItem(title: "3", image: UIImage(systemName: "person"), tag: 2)
         let third = UINavigationController(rootViewController: ProfileInfoViewController())
         third.tabBarItem = thirdItem
         
