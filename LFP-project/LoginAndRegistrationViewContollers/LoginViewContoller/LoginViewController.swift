@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+var savedtoken = ""
 
 class LoginViewController: UIViewController {
     
@@ -46,7 +47,6 @@ class LoginViewController: UIViewController {
     let loginButton: DarkBlueButton = {
         let loginButton = DarkBlueButton(title: "Войти")
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
-        loginButton.showsTouchWhenHighlighted = true
         return loginButton
     }()
     
@@ -64,7 +64,6 @@ class LoginViewController: UIViewController {
         registrationButton.setTitle("Зарегистрироваться", for: .normal)
         registrationButton.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
         registrationButton.layer.cornerRadius = 8
-        registrationButton.showsTouchWhenHighlighted = true
         return registrationButton
     }()
     
@@ -151,13 +150,13 @@ class LoginViewController: UIViewController {
         let session = URLSession.shared
         session.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
-            guard let httpResponse = response as? HTTPURLResponse else { return print(response) }
+            guard let httpResponse = response as? HTTPURLResponse else { return }
             guard httpResponse.statusCode == 200 else {
                 return print("Error: \(httpResponse.statusCode)")
             }
-            let result = try? JSONSerialization.jsonObject(with: data, options: [])
-            guard let result = result else { return }
-            print(result)
+            let token = try? JSONDecoder().decode(Token.self, from: data)
+            guard let token = token else { return }
+            savedtoken = token.token
             NotificationCenter.default.post(name: Notification.Name.loginDidSuccess, object: nil)
         }.resume()
     }

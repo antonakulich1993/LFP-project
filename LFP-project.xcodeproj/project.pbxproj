@@ -17,6 +17,7 @@
 		FAD70B0E27705AB4002FCD61 /* AllPartiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B0D27705AB4002FCD61 /* AllPartiesViewController.swift */; };
 		FAD70B1027705AC6002FCD61 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B0F27705AC6002FCD61 /* AddPartyViewController.swift */; };
 		FAD70B1227705AE7002FCD61 /* ProfileInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B1127705AE7002FCD61 /* ProfileInfoViewController.swift */; };
+		FAD70B14277090DA002FCD61 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B13277090DA002FCD61 /* Token.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
@@ -36,6 +37,7 @@
 		FAD70B0D27705AB4002FCD61 /* AllPartiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPartiesViewController.swift; sourceTree = "<group>"; };
 		FAD70B0F27705AC6002FCD61 /* AddPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyViewController.swift; sourceTree = "<group>"; };
 		FAD70B1127705AE7002FCD61 /* ProfileInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoViewController.swift; sourceTree = "<group>"; };
+		FAD70B13277090DA002FCD61 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3D3557276C7682009DFCBF /* RegisrationResponseModel.swift */,
+				FAD70B13277090DA002FCD61 /* Token.swift */,
 			);
 			path = ModelsForRespones;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				FA3D35292769F53F009DFCBF /* DarkBlueButton.swift in Sources */,
 				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
 				FAD70B0627705847002FCD61 /* NotificationCenter.swift in Sources */,
+				FAD70B14277090DA002FCD61 /* Token.swift in Sources */,
 				FA3D3558276C7682009DFCBF /* RegisrationResponseModel.swift in Sources */,
 				FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */,
 				FAD70B1027705AC6002FCD61 /* AddPartyViewController.swift in Sources */,
