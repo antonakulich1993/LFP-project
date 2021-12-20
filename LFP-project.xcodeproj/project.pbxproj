@@ -12,6 +12,11 @@
 		FA3D35292769F53F009DFCBF /* DarkBlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D35282769F53F009DFCBF /* DarkBlueButton.swift */; };
 		FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D352A2769F8B1009DFCBF /* CustomTextField.swift */; };
 		FA3D3558276C7682009DFCBF /* RegisrationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D3557276C7682009DFCBF /* RegisrationResponseModel.swift */; };
+		FAD70B0627705847002FCD61 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B0527705847002FCD61 /* NotificationCenter.swift */; };
+		FAD70B0927705939002FCD61 /* TabBarControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B0827705939002FCD61 /* TabBarControllers.swift */; };
+		FAD70B0E27705AB4002FCD61 /* AllPartiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B0D27705AB4002FCD61 /* AllPartiesViewController.swift */; };
+		FAD70B1027705AC6002FCD61 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B0F27705AC6002FCD61 /* AddPartyViewController.swift */; };
+		FAD70B1227705AE7002FCD61 /* ProfileInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B1127705AE7002FCD61 /* ProfileInfoViewController.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
@@ -26,6 +31,11 @@
 		FA3D35282769F53F009DFCBF /* DarkBlueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkBlueButton.swift; sourceTree = "<group>"; };
 		FA3D352A2769F8B1009DFCBF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FA3D3557276C7682009DFCBF /* RegisrationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisrationResponseModel.swift; sourceTree = "<group>"; };
+		FAD70B0527705847002FCD61 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		FAD70B0827705939002FCD61 /* TabBarControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllers.swift; sourceTree = "<group>"; };
+		FAD70B0D27705AB4002FCD61 /* AllPartiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPartiesViewController.swift; sourceTree = "<group>"; };
+		FAD70B0F27705AC6002FCD61 /* AddPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyViewController.swift; sourceTree = "<group>"; };
+		FAD70B1127705AE7002FCD61 /* ProfileInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoViewController.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +98,49 @@
 			path = RegistrationViewController;
 			sourceTree = "<group>";
 		};
+		FAD70B032770582E002FCD61 /* NotoficationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B0527705847002FCD61 /* NotificationCenter.swift */,
+			);
+			path = NotoficationCenter;
+			sourceTree = "<group>";
+		};
+		FAD70B0727705923002FCD61 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B0827705939002FCD61 /* TabBarControllers.swift */,
+				FAD70B0C27705943002FCD61 /* AllPartiesViewContoller */,
+				FAD70B0B27705940002FCD61 /* AddPartyViewController */,
+				FAD70B0A2770593D002FCD61 /* ProfileInfoViewController */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		FAD70B0A2770593D002FCD61 /* ProfileInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B1127705AE7002FCD61 /* ProfileInfoViewController.swift */,
+			);
+			path = ProfileInfoViewController;
+			sourceTree = "<group>";
+		};
+		FAD70B0B27705940002FCD61 /* AddPartyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B0F27705AC6002FCD61 /* AddPartyViewController.swift */,
+			);
+			path = AddPartyViewController;
+			sourceTree = "<group>";
+		};
+		FAD70B0C27705943002FCD61 /* AllPartiesViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B0D27705AB4002FCD61 /* AllPartiesViewController.swift */,
+			);
+			path = AllPartiesViewContoller;
+			sourceTree = "<group>";
+		};
 		FADACCE72767795B00DC77F1 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +162,8 @@
 		FADACCF22767795B00DC77F1 /* LFP-project */ = {
 			isa = PBXGroup;
 			children = (
+				FAD70B0727705923002FCD61 /* TabBarControllers */,
+				FAD70B032770582E002FCD61 /* NotoficationCenter */,
 				FA3D35272769F529009DFCBF /* CustomUIObjects */,
 				FA3D3556276C766B009DFCBF /* ModelsForRespones */,
 				FADACD0727677C8400DC77F1 /* LoginAndRegistrationViewContollers */,
@@ -253,10 +308,15 @@
 			files = (
 				FA3D35292769F53F009DFCBF /* DarkBlueButton.swift in Sources */,
 				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
+				FAD70B0627705847002FCD61 /* NotificationCenter.swift in Sources */,
 				FA3D3558276C7682009DFCBF /* RegisrationResponseModel.swift in Sources */,
 				FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */,
+				FAD70B1027705AC6002FCD61 /* AddPartyViewController.swift in Sources */,
+				FAD70B0927705939002FCD61 /* TabBarControllers.swift in Sources */,
 				FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */,
 				FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */,
+				FAD70B1227705AE7002FCD61 /* ProfileInfoViewController.swift in Sources */,
+				FAD70B0E27705AB4002FCD61 /* AllPartiesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

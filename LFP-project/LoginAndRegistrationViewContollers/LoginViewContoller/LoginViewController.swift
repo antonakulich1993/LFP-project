@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 class LoginViewController: UIViewController {
     
     let logoImage: UIImageView = {
@@ -157,6 +158,7 @@ class LoginViewController: UIViewController {
             let result = try? JSONSerialization.jsonObject(with: data, options: [])
             guard let result = result else { return }
             print(result)
+            NotificationCenter.default.post(name: Notification.Name.loginDidSuccess, object: nil)
         }.resume()
     }
     
