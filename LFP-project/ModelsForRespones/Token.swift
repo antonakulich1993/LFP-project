@@ -10,12 +10,7 @@ import Foundation
 struct Token: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case token
+        case token 
     }
     let token: String
-    
-    init(token: String) {
-        self.token = token
-        DefaultsManager.token = token
-    }
 }

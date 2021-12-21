@@ -11,11 +11,11 @@ class DefaultsManager {
     class var token: String? {
         
         get {
-            return UserDefaults.standard.value(forKey: #function) as? String
+            return UserDefaults.standard.value(forKey: "token") as? String
         }
         
         set {
-            UserDefaults.standard.set(newValue, forKey: #function)
+            UserDefaults.standard.set(newValue, forKey: "token")
         }
     }
 }
