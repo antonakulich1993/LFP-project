@@ -21,8 +21,15 @@ class AllPartiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
     }
 }
+
+func getParties() {
+    
+    
+}
+
 
 //extension AllPartiesViewController: UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
