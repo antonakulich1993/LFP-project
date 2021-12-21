@@ -11,15 +11,15 @@ import LineTextField
 
 class AddPartyViewController: UIViewController {
     
-    private let scrollView: UIScrollView = {
+     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         return scrollView
     }()
     
-    private let scrollViewContainer: UIView = {
+     let scrollViewContainer: UIView = {
         let scrollViewContainer = UIView()
-        scrollViewContainer.backgroundColor = .white
+        scrollViewContainer.backgroundColor = .red
         return scrollViewContainer
     }()
     
@@ -133,7 +133,6 @@ class AddPartyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         configureInterface()
     }
     
@@ -148,88 +147,6 @@ class AddPartyViewController: UIViewController {
         scrollViewContainer.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
             make.width.equalTo(view)
-        }
-        
-        scrollViewContainer.addSubview(addPartyLabel)
-        addPartyLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(80)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-        
-        scrollViewContainer.addSubview(gameField)
-        gameField.snp.makeConstraints { make in
-            make.top.equalTo(addPartyLabel.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(locationField)
-        locationField.snp.makeConstraints { make in
-            make.top.equalTo(gameField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(dateField)
-        dateField.snp.makeConstraints { make in
-            make.top.equalTo(locationField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(timeField)
-        timeField.snp.makeConstraints { make in
-            make.top.equalTo(dateField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(gameDurationField)
-        gameDurationField.snp.makeConstraints { make in
-            make.top.equalTo(timeField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(minPlayersField)
-        minPlayersField.snp.makeConstraints { make in
-            make.top.equalTo(gameDurationField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(maxPlayersField)
-        maxPlayersField.snp.makeConstraints { make in
-            make.top.equalTo(minPlayersField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(priceField)
-        priceField.snp.makeConstraints { make in
-            make.top.equalTo(maxPlayersField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(currencyField)
-        priceField.snp.makeConstraints { make in
-            make.top.equalTo(priceField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(45)
-        }
-        
-        scrollViewContainer.addSubview(infoLabel)
-        infoLabel.snp.makeConstraints { make in
-            make.top.equalTo(currencyField.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-        
-        scrollViewContainer.addSubview(addPartyButton)
-        addPartyButton.snp.makeConstraints { make in
-            make.top.equalTo(infoLabel.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(16)
         }
     }
 }
