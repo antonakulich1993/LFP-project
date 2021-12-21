@@ -149,6 +149,8 @@ class LoginViewController: UIViewController {
                 return print("Error: \(httpResponse.statusCode)")
             }
             let token = try? JSONDecoder().decode(Token.self, from: data)
+            guard let token = token?.token else { return }
+            DefaultsManager.token = token
             DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 let appDelegateWindow = appDelegate?.window
