@@ -143,14 +143,18 @@ class LoginViewController: UIViewController {
         let session = URLSession.shared
         session.dataTask(with: request) { data, response, error in
             guard let data = data else { return }
+            
             guard let httpResponse = response as? HTTPURLResponse else { return }
-            print(response)
+            
             guard httpResponse.statusCode == 200 else {
                 return print("Error: \(httpResponse.statusCode)")
             }
+            
             let token = try? JSONDecoder().decode(Token.self, from: data)
+            
             guard let token = token?.token else { return }
             DefaultsManager.token = token
+            
             DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 let appDelegateWindow = appDelegate?.window
