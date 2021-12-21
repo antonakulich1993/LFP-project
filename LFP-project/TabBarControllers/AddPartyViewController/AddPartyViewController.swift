@@ -19,7 +19,7 @@ class AddPartyViewController: UIViewController {
     
      let scrollViewContainer: UIView = {
         let scrollViewContainer = UIView()
-        scrollViewContainer.backgroundColor = .red
+        scrollViewContainer.backgroundColor = .white
         return scrollViewContainer
     }()
     
@@ -34,6 +34,14 @@ class AddPartyViewController: UIViewController {
         addPartyLabel.textColor = .black
         addPartyLabel.font = addPartyLabel.font.withSize(28)
         return addPartyLabel
+    }()
+    
+    let infoLabel: UILabel = {
+        let infoLabel = UILabel()
+        infoLabel.text = "*все поля обязательны для заполнения"
+        infoLabel.textColor = .systemGray
+        infoLabel.textAlignment = .center
+        return infoLabel
     }()
     
     let gameField: LineTextField = {
@@ -76,7 +84,7 @@ class AddPartyViewController: UIViewController {
         let gameDurationField = LineTextField()
         gameDurationField.lineColorDefault = UIColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         gameDurationField.lineColorActive = UIColor.black
-        gameDurationField.placeholder = "Время длительности игры"
+        gameDurationField.placeholder = "Продолжительность игры"
         gameDurationField.floatingPlaceholder = true
         return gameDurationField
     }()
@@ -117,13 +125,7 @@ class AddPartyViewController: UIViewController {
         return currencyField
     }()
     
-    let infoLabel: UILabel = {
-        let infoLabel = UILabel()
-        infoLabel.text = "*все поля обязательны для заполнения"
-        infoLabel.textColor = .systemGray
-        infoLabel.textAlignment = .center
-        return infoLabel
-    }()
+   
     
     let addPartyButton: DarkBlueButton = {
         let addPartyButton = DarkBlueButton(title: "Создать игру")
@@ -147,6 +149,89 @@ class AddPartyViewController: UIViewController {
         scrollViewContainer.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
             make.width.equalTo(view)
+        }
+        
+        scrollViewContainer.addSubview(addPartyLabel)
+        addPartyLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        
+        scrollViewContainer.addSubview(infoLabel)
+        infoLabel.snp.makeConstraints { make in
+            make.top.equalTo(addPartyLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        
+        scrollViewContainer.addSubview(gameField)
+        gameField.snp.makeConstraints { make in
+            make.top.equalTo(infoLabel.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(locationField)
+        locationField.snp.makeConstraints { make in
+            make.top.equalTo(gameField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(dateField)
+        dateField.snp.makeConstraints { make in
+            make.top.equalTo(locationField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(timeField)
+        timeField.snp.makeConstraints { make in
+            make.top.equalTo(dateField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(gameDurationField)
+        gameDurationField.snp.makeConstraints { make in
+            make.top.equalTo(timeField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(minPlayersField)
+        minPlayersField.snp.makeConstraints { make in
+            make.top.equalTo(gameDurationField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(maxPlayersField)
+        maxPlayersField.snp.makeConstraints { make in
+            make.top.equalTo(minPlayersField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(priceField)
+        priceField.snp.makeConstraints { make in
+            make.top.equalTo(maxPlayersField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(currencyField)
+        currencyField.snp.makeConstraints { make in
+            make.top.equalTo(priceField.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+        }
+        
+        scrollViewContainer.addSubview(addPartyButton)
+        addPartyButton.snp.makeConstraints { make in
+            make.top.equalTo(currencyField.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(45)
+            make.bottom.equalToSuperview().offset(-16)
         }
     }
 }
