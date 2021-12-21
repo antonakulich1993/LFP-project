@@ -8,8 +8,6 @@
 import UIKit
 import SnapKit
 
-var savedtoken = ""
-
 class LoginViewController: UIViewController {
     
     let logoImage: UIImageView = {
@@ -38,7 +36,7 @@ class LoginViewController: UIViewController {
     let passwordField: CustomTextField = {
         let passwordField = CustomTextField()
         passwordField.attributedPlaceholder = NSAttributedString(string: "Пароль",
-                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         passwordField.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
         passwordField.isSecureTextEntry = true
         return passwordField
@@ -46,7 +44,6 @@ class LoginViewController: UIViewController {
     
     let loginButton: DarkBlueButton = {
         let loginButton = DarkBlueButton(title: "Войти")
-        loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
         return loginButton
     }()
     
@@ -58,22 +55,18 @@ class LoginViewController: UIViewController {
     }()
     
     let registrationButton: UIButton = {
-        let registrationButton = UIButton()
-        registrationButton.sizeThatFits(CGSize(width: 358, height: 54))
+        let registrationButton = UIButton(type: .system)
         registrationButton.backgroundColor = UIColor(red: 0.58, green: 0.59, blue: 0.69, alpha: 1.0)
         registrationButton.setTitle("Зарегистрироваться", for: .normal)
-        registrationButton.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
         registrationButton.layer.cornerRadius = 8
         return registrationButton
     }()
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        configureIntreface()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureIntreface()
+        loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+        registrationButton.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
         hideKeyboardWhenTappedAround()
     }
     
@@ -156,8 +149,6 @@ class LoginViewController: UIViewController {
                 return print("Error: \(httpResponse.statusCode)")
             }
             let token = try? JSONDecoder().decode(Token.self, from: data)
-            guard let token = token else { return }
-            savedtoken = token.token
             DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 let appDelegateWindow = appDelegate?.window

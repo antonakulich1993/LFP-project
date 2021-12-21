@@ -16,22 +16,22 @@ class TabBarControllers: UITabBarController {
     }
     
     func configureTabBar() {
-        let firstItem = UITabBarItem(title: "1", image: UIImage(systemName: "person"), tag: 0)
+        let firstItem = UITabBarItem(title: "1", image: UIImage(systemName: "list.bullet"), tag: 0)
         let first = UINavigationController(rootViewController: AllPartiesViewController())
         first.tabBarItem = firstItem
         
-        let secondItem = UITabBarItem(title: "2", image: UIImage(systemName: "person"), tag: 1)
+        let secondItem = UITabBarItem(title: "2", image: UIImage(systemName: "plus.circle"), tag: 1)
         let second = UINavigationController(rootViewController: AddPartyViewController())
         second.tabBarItem = secondItem
         
-        let thirdItem = UITabBarItem(title: "3", image: UIImage(systemName: "person"), tag: 2)
+        let thirdItem = UITabBarItem(title: "3", image: UIImage(systemName: "person.crop.circle"), tag: 2)
         let third = UINavigationController(rootViewController: ProfileInfoViewController())
         third.tabBarItem = thirdItem
         
         let controllers = [first, second, third]
         
         self.viewControllers = controllers
-        self.tabBar.tintColor = .white
-        self.tabBar.backgroundColor = .lightGray
+        self.tabBar.tintColor = .black
+        self.tabBar.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
     }
 }

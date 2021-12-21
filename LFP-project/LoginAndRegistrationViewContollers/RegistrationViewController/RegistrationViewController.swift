@@ -56,17 +56,13 @@ class RegistrationViewController: UIViewController {
     
     let registrationButton: DarkBlueButton = {
         let registrationButton = DarkBlueButton(title: "Зарегистрироваться")
-        registrationButton.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
         return registrationButton
     }()
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        configuerInterface()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configuerInterface()
+        registrationButton.addTarget(self, action: #selector(registrationAction), for: .touchUpInside)
         hideKeyboardWhenTappedAround()
         view.backgroundColor = .white
     }

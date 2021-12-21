@@ -17,6 +17,9 @@
 		FAD70B1027705AC6002FCD61 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B0F27705AC6002FCD61 /* AddPartyViewController.swift */; };
 		FAD70B1227705AE7002FCD61 /* ProfileInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B1127705AE7002FCD61 /* ProfileInfoViewController.swift */; };
 		FAD70B14277090DA002FCD61 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B13277090DA002FCD61 /* Token.swift */; };
+		FAD70B1B2770A5F5002FCD61 /* AllPartiesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B192770A5F5002FCD61 /* AllPartiesViewCell.swift */; };
+		FAD70B1C2770A5F5002FCD61 /* AllPartiesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B1A2770A5F5002FCD61 /* AllPartiesViewCell.xib */; };
+		FAD70B3E2771AA29002FCD61 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B3D2771AA29002FCD61 /* DefaultsManager.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
@@ -36,6 +39,9 @@
 		FAD70B0F27705AC6002FCD61 /* AddPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyViewController.swift; sourceTree = "<group>"; };
 		FAD70B1127705AE7002FCD61 /* ProfileInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoViewController.swift; sourceTree = "<group>"; };
 		FAD70B13277090DA002FCD61 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		FAD70B192770A5F5002FCD61 /* AllPartiesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPartiesViewCell.swift; sourceTree = "<group>"; };
+		FAD70B1A2770A5F5002FCD61 /* AllPartiesViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllPartiesViewCell.xib; sourceTree = "<group>"; };
+		FAD70B3D2771AA29002FCD61 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,9 +135,27 @@
 		FAD70B0C27705943002FCD61 /* AllPartiesViewContoller */ = {
 			isa = PBXGroup;
 			children = (
+				FAD70B162770A5C3002FCD61 /* AllPartiesCell */,
 				FAD70B0D27705AB4002FCD61 /* AllPartiesViewController.swift */,
 			);
 			path = AllPartiesViewContoller;
+			sourceTree = "<group>";
+		};
+		FAD70B152770A05F002FCD61 /* DefaultsManager */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B3D2771AA29002FCD61 /* DefaultsManager.swift */,
+			);
+			path = DefaultsManager;
+			sourceTree = "<group>";
+		};
+		FAD70B162770A5C3002FCD61 /* AllPartiesCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B192770A5F5002FCD61 /* AllPartiesViewCell.swift */,
+				FAD70B1A2770A5F5002FCD61 /* AllPartiesViewCell.xib */,
+			);
+			path = AllPartiesCell;
 			sourceTree = "<group>";
 		};
 		FADACCE72767795B00DC77F1 = {
@@ -155,6 +179,7 @@
 		FADACCF22767795B00DC77F1 /* LFP-project */ = {
 			isa = PBXGroup;
 			children = (
+				FAD70B152770A05F002FCD61 /* DefaultsManager */,
 				FAD70B0727705923002FCD61 /* TabBarControllers */,
 				FA3D35272769F529009DFCBF /* CustomUIObjects */,
 				FA3D3556276C766B009DFCBF /* ModelsForRespones */,
@@ -245,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */,
+				FAD70B1C2770A5F5002FCD61 /* AllPartiesViewCell.xib in Resources */,
 				FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +330,9 @@
 				FA3D3558276C7682009DFCBF /* RegisrationResponseModel.swift in Sources */,
 				FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */,
 				FAD70B1027705AC6002FCD61 /* AddPartyViewController.swift in Sources */,
+				FAD70B3E2771AA29002FCD61 /* DefaultsManager.swift in Sources */,
 				FAD70B0927705939002FCD61 /* TabBarControllers.swift in Sources */,
+				FAD70B1B2770A5F5002FCD61 /* AllPartiesViewCell.swift in Sources */,
 				FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */,
 				FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */,
 				FAD70B1227705AE7002FCD61 /* ProfileInfoViewController.swift in Sources */,
