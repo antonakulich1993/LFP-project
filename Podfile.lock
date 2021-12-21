@@ -1,16 +1,20 @@
 PODS:
+  - LineTextField (1.1.0)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - LineTextField (~> 1.0)
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - LineTextField
     - SnapKit
 
 SPEC CHECKSUMS:
+  LineTextField: 0248332b0c184007e216a64cea91533d157a1480
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 371a160216b667d6e692ad6f44ca950cdd9dcd62
+PODFILE CHECKSUM: de64a14f05557aaff0f13a2590e7df1a80fed46e
 
 COCOAPODS: 1.11.2

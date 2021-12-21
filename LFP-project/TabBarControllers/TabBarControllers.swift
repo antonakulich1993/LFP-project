@@ -20,7 +20,7 @@ class TabBarControllers: UITabBarController {
         let first = UINavigationController(rootViewController: AllPartiesViewController())
         first.tabBarItem = firstItem
         
-        let secondItem = UITabBarItem(title: "2", image: UIImage(systemName: "plus.circle"), tag: 1)
+        let secondItem = UITabBarItem(title: "Создать игру", image: UIImage(systemName: "plus.circle"), tag: 1)
         let second = UINavigationController(rootViewController: AddPartyViewController())
         second.tabBarItem = secondItem
         

@@ -10,15 +10,15 @@ import UIKit
 class RegistrationViewController: UIViewController {
     
     let registrationLabel: UILabel = {
-        let infoLabel = UILabel()
-        infoLabel.text = "Регистрация"
-        infoLabel.numberOfLines = 0
-        infoLabel.lineBreakMode = .byWordWrapping
-        infoLabel.numberOfLines = 0
-        infoLabel.textAlignment = .center
-        infoLabel.textColor = .black
-        infoLabel.font = infoLabel.font.withSize(28)
-        return infoLabel
+        let registrationLabel = UILabel()
+        registrationLabel.text = "Регистрация"
+        registrationLabel.numberOfLines = 0
+        registrationLabel.lineBreakMode = .byWordWrapping
+        registrationLabel.numberOfLines = 0
+        registrationLabel.textAlignment = .center
+        registrationLabel.textColor = .black
+        registrationLabel.font = registrationLabel.font.withSize(28)
+        return registrationLabel
     }()
     
     let usernameField: CustomTextField = {

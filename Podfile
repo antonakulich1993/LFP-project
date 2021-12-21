@@ -7,5 +7,6 @@ target 'LFP-project' do
 
   # Pods for LFP-project
  pod 'SnapKit'
+ pod 'LineTextField', '~> 1.0'
 
 end
