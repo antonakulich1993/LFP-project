@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AllPartiesResponse: Codable {
+struct AllPartiesModel: Codable {
     
     enum CodingKeys: String, CodingKey {
         case currency
@@ -19,22 +19,21 @@ struct AllPartiesResponse: Codable {
         case time
         case duration
         case price
-        case isPriceTotal = "is_price_total"
         case minPlayers = "min_players"
         case maxPlayers = "max_players"
         case partymaker
     }
-    let currency: String?
-    let createdAt: String?
-    let updatedAt: String?
-    let location: String?
-    let game: String?
-    let date: String?
-    let time: String?
-    let duration: String?
-    let price: String?
-    let isPriceTotal: String?
-    let minPlayers: String?
-    let maxPlayers: String?
-    let partymaker: String?
+    
+    let currency: String
+    let createdAt: String
+    let updatedAt: String
+    let location: String
+    let game: String
+    let date: Date
+    let time: String
+    let duration: Int
+    let price: Float
+    let minPlayers: String
+    let maxPlayers: String
+    let partymaker: String
 }

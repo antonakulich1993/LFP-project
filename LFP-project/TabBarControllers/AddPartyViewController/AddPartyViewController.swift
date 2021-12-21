@@ -11,15 +11,20 @@ import LineTextField
 
 class AddPartyViewController: UIViewController {
     
-     let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         return scrollView
     }()
     
-     let scrollViewContainer: UIView = {
+    let scrollViewContainer: UIView = {
         let scrollViewContainer = UIView()
+//        scrollViewContainer.spacing = 20
+//        scrollViewContainer.axis = .vertical
+//        scrollViewContainer.alignment = .fill
+//        scrollViewContainer.distribution = .fillEqually
         scrollViewContainer.backgroundColor = .white
+//        scrollViewContainer.translatesAutoresizingMaskIntoConstraints = false
         return scrollViewContainer
     }()
     
@@ -111,7 +116,7 @@ class AddPartyViewController: UIViewController {
         let priceField = LineTextField()
         priceField.lineColorDefault = UIColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         priceField.lineColorActive = UIColor.black
-        priceField.placeholder = "Полная стоимость игры"
+        priceField.placeholder = "Cтоимость игры"
         priceField.floatingPlaceholder = true
         return priceField
     }()
@@ -125,13 +130,12 @@ class AddPartyViewController: UIViewController {
         return currencyField
     }()
     
-   
+    
     
     let addPartyButton: DarkBlueButton = {
         let addPartyButton = DarkBlueButton(title: "Создать игру")
         return addPartyButton
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,7 +173,7 @@ class AddPartyViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(45)
         }
-        
+
         scrollViewContainer.addSubview(locationField)
         locationField.snp.makeConstraints { make in
             make.top.equalTo(gameField.snp.bottom).offset(20)
@@ -183,7 +187,7 @@ class AddPartyViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(45)
         }
-        
+
         scrollViewContainer.addSubview(timeField)
         timeField.snp.makeConstraints { make in
             make.top.equalTo(dateField.snp.bottom).offset(20)
