@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        view.backgroundColor = .white
     }
 }

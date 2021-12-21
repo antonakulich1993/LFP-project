@@ -13,4 +13,9 @@ struct Token: Codable {
         case token
     }
     let token: String
+    
+    init(token: String) {
+        self.token = token
+        DefaultsManager.token = token
+    }
 }
