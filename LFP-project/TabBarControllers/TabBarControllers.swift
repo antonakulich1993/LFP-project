@@ -16,7 +16,7 @@ class TabBarControllers: UITabBarController {
     }
     
     func configureTabBar() {
-        let firstItem = UITabBarItem(title: "1", image: UIImage(systemName: "list.bullet"), tag: 0)
+        let firstItem = UITabBarItem(title: "Все игры", image: UIImage(systemName: "list.bullet"), tag: 0)
         let first = UINavigationController(rootViewController: AllPartiesViewController())
         first.tabBarItem = firstItem
         
@@ -24,7 +24,7 @@ class TabBarControllers: UITabBarController {
         let second = UINavigationController(rootViewController: AddPartyViewController())
         second.tabBarItem = secondItem
         
-        let thirdItem = UITabBarItem(title: "3", image: UIImage(systemName: "person.crop.circle"), tag: 2)
+        let thirdItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.crop.circle"), tag: 2)
         let third = UINavigationController(rootViewController: ProfileInfoViewController())
         third.tabBarItem = thirdItem
         
