@@ -24,30 +24,35 @@ class AllPartiesViewController: UIViewController {
         view.backgroundColor = .white
         getParties()
     }
+    
+
+//    return ["Authorization": "Token \(savedToken)"]
     func getParties() {
-        guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
+//        guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
+        guard let token = DefaultsManager.token else { return }
+        var components = URLComponents()
+        components.host = "https"
+        components.host = "lfp.monster"
+        components.path = "/api/party/"
+        components.queryItems = [
+            URLQueryItem(name: "Authorisation", value: "token \(token)")
+        ]
+        guard let url = components.url else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else { return print("Error")}
             guard httpResponse.statusCode == 200 else {
                 return print("Error: \(httpResponse.statusCode)")
             }
-            do {
-                guard let data = data else { return }
-                
-                let result = try? JSONDecoder().decode([AllPartiesModel].self, from: data)
-                guard let result = result else { return }
-                self.parties = result
-            } catch (let error) {
-                print("Error:\(error.localizedDescription)")
-            }
+            
+            guard let data = data else { return }
+            
+            let result = try? JSONDecoder().decode([AllPartiesModel].self, from: data)
+            guard let result = result else { return }
+            self.parties = result
         }.resume()
     }
 }
-
-
-
-
 
 extension AllPartiesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
