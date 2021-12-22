@@ -26,24 +26,23 @@ class AllPartiesViewController: UIViewController {
         getParties()
     }
     
-
-//    return ["Authorization": "Token \(savedToken)"]
+    
+    //    return ["Authorization": "Token \(savedToken)"]
     func getParties() {
         
         guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
         guard let token = DefaultsManager.token else { return }
-        var request = URLRequest(url: url)
-        request.setValue("application/json", forHTTPHeaderField: "Authorization: Token \(token)")
-        request.httpMethod = "GET"
-        
+                var request = URLRequest(url: url)
+                request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else { return print("Error")}
             guard httpResponse.statusCode == 200 else {
                 return print("Error: \(httpResponse.statusCode)")
             }
-            
+
             guard let data = data else { return }
-            
+
             let result = try? JSONDecoder().decode([AllPartiesModel].self, from: data)
             guard let result = result else { return }
             self.parties = result
