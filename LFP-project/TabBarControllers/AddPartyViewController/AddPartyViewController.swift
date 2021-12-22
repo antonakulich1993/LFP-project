@@ -107,7 +107,7 @@ class AddPartyViewController: UIViewController {
         let maxPlayersField = LineTextField()
         maxPlayersField.lineColorDefault = UIColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         maxPlayersField.lineColorActive = UIColor.black
-        maxPlayersField.placeholder = "Максимальное колличетсво игроков"
+        maxPlayersField.placeholder = "Максимальное количетсво игроков"
         maxPlayersField.floatingPlaceholder = true
         return maxPlayersField
     }()
