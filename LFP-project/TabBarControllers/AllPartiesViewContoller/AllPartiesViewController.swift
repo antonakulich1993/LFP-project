@@ -16,6 +16,7 @@ class AllPartiesViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.register(UINib(nibName: String(describing: AllPartiesViewCell.self), bundle: nil), forCellReuseIdentifier: AllPartiesViewCell.identifier)
+        tableView.reloadData()
         return tableView
     }()
     
@@ -28,18 +29,14 @@ class AllPartiesViewController: UIViewController {
 
 //    return ["Authorization": "Token \(savedToken)"]
     func getParties() {
-//        guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
-        guard let token = DefaultsManager.token else { return }
-        var components = URLComponents()
-        components.host = "https"
-        components.host = "lfp.monster"
-        components.path = "/api/party/"
-        components.queryItems = [
-            URLQueryItem(name: "Authorisation", value: "token \(token)")
-        ]
-        guard let url = components.url else { return }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
+        guard let token = DefaultsManager.token else { return }
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Authorization: Token \(token)")
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else { return print("Error")}
             guard httpResponse.statusCode == 200 else {
                 return print("Error: \(httpResponse.statusCode)")
