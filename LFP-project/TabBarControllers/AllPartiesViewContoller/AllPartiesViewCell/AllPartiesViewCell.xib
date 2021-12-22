@@ -66,6 +66,7 @@
             <connections>
                 <outlet property="dateLabel" destination="Q3u-vS-Ivl" id="S2r-IW-aEZ"/>
                 <outlet property="locationLabel" destination="mir-D3-qP0" id="Wxl-wJ-Zr9"/>
+                <outlet property="nextPageImage" destination="rd9-bu-gd7" id="WV7-Ut-FTT"/>
                 <outlet property="playersLabel" destination="11l-YV-ly7" id="67C-0G-kCZ"/>
                 <outlet property="startTimeLabel" destination="6Gf-Sp-ITv" id="Cep-eT-tOm"/>
             </connections>
