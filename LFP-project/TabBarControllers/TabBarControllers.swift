@@ -31,7 +31,7 @@ class TabBarControllers: UITabBarController {
         let controllers = [first, second, third]
         
         self.viewControllers = controllers
-        self.tabBar.tintColor = .black
+        self.tabBar.tintColor = UIColor(red: 0.16, green: 0.17, blue: 0.25, alpha: 1.0)
         self.tabBar.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
     }
 }

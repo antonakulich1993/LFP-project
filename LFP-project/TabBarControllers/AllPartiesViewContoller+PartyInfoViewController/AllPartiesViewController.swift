@@ -15,6 +15,7 @@ class AllPartiesViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UINib(nibName: String(describing: AllPartiesViewCell.self), bundle: nil), forCellReuseIdentifier: AllPartiesViewCell.identifier)
         tableView.estimatedRowHeight = 130
         return tableView
@@ -64,5 +65,13 @@ extension AllPartiesViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AllPartiesViewCell.identifier, for: indexPath) as? AllPartiesViewCell else { return UITableViewCell()}
         cell.setupCell(parties: parties[indexPath.row])
         return cell
+    }
+}
+
+extension AllPartiesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let partyInfo = PartyInfoViewController()
+        navigationController?.pushViewController(partyInfo, animated: true)
+        
     }
 }
