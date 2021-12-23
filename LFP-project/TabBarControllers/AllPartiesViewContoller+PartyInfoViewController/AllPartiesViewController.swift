@@ -23,11 +23,11 @@ class AllPartiesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
-        view.backgroundColor = .white
         getParties()
     }
     
