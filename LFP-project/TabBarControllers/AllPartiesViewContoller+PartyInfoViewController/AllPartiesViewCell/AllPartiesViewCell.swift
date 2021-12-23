@@ -20,7 +20,6 @@ class AllPartiesViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .default
-        
     }
 
     func setupCell(parties: AllPartiesModel) {

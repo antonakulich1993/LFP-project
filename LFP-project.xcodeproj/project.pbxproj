@@ -20,6 +20,7 @@
 		FAD70B402771FC41002FCD61 /* AllPartiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B3F2771FC41002FCD61 /* AllPartiesModel.swift */; };
 		FAD70B43277200E3002FCD61 /* AllPartiesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B41277200E3002FCD61 /* AllPartiesViewCell.swift */; };
 		FAD70B44277200E3002FCD61 /* AllPartiesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B42277200E3002FCD61 /* AllPartiesViewCell.xib */; };
+		FAD70B4627736EC7002FCD61 /* PartyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B4527736EC7002FCD61 /* PartyInfoViewController.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 		FAD70B3F2771FC41002FCD61 /* AllPartiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPartiesModel.swift; sourceTree = "<group>"; };
 		FAD70B41277200E3002FCD61 /* AllPartiesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPartiesViewCell.swift; sourceTree = "<group>"; };
 		FAD70B42277200E3002FCD61 /* AllPartiesViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllPartiesViewCell.xib; sourceTree = "<group>"; };
+		FAD70B4527736EC7002FCD61 /* PartyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInfoViewController.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD70B0827705939002FCD61 /* TabBarControllers.swift */,
-				FAD70B0C27705943002FCD61 /* AllPartiesViewContoller */,
+				FAD70B0C27705943002FCD61 /* AllPartiesViewContoller+PartyInfoViewController */,
 				FAD70B0B27705940002FCD61 /* AddPartyViewController */,
 				FAD70B0A2770593D002FCD61 /* ProfileInfoViewController */,
 			);
@@ -132,13 +134,14 @@
 			path = AddPartyViewController;
 			sourceTree = "<group>";
 		};
-		FAD70B0C27705943002FCD61 /* AllPartiesViewContoller */ = {
+		FAD70B0C27705943002FCD61 /* AllPartiesViewContoller+PartyInfoViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FAD70B162770A5C3002FCD61 /* AllPartiesViewCell */,
 				FAD70B0D27705AB4002FCD61 /* AllPartiesViewController.swift */,
+				FAD70B162770A5C3002FCD61 /* AllPartiesViewCell */,
+				FAD70B47277464A7002FCD61 /* PartyInfoViewController */,
 			);
-			path = AllPartiesViewContoller;
+			path = "AllPartiesViewContoller+PartyInfoViewController";
 			sourceTree = "<group>";
 		};
 		FAD70B152770A05F002FCD61 /* DefaultsManager */ = {
@@ -156,6 +159,14 @@
 				FAD70B42277200E3002FCD61 /* AllPartiesViewCell.xib */,
 			);
 			path = AllPartiesViewCell;
+			sourceTree = "<group>";
+		};
+		FAD70B47277464A7002FCD61 /* PartyInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B4527736EC7002FCD61 /* PartyInfoViewController.swift */,
+			);
+			path = PartyInfoViewController;
 			sourceTree = "<group>";
 		};
 		FADACCE72767795B00DC77F1 = {
@@ -333,6 +344,7 @@
 				FAD70B43277200E3002FCD61 /* AllPartiesViewCell.swift in Sources */,
 				FAD70B0927705939002FCD61 /* TabBarControllers.swift in Sources */,
 				FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */,
+				FAD70B4627736EC7002FCD61 /* PartyInfoViewController.swift in Sources */,
 				FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */,
 				FAD70B1227705AE7002FCD61 /* ProfileInfoViewController.swift in Sources */,
 				FAD70B0E27705AB4002FCD61 /* AllPartiesViewController.swift in Sources */,
