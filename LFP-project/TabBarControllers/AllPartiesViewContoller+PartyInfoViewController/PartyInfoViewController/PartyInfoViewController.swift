@@ -23,15 +23,15 @@ class PartyInfoViewController: UIViewController {
         return view
     }()
     
+    var playersViewConrtoller = UIViewController()
+    var gameInfoViewController = UIViewController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureInterface()
     }
-    
-    var playersViewConrtoller = UIViewController()
-    var gameInfoViewController = UIViewController()
-    
     
     func configureInterface() {
         view.addSubview(partySegmentControl)
@@ -56,6 +56,7 @@ class PartyInfoViewController: UIViewController {
         addChild(playersViewConrtoller)
         childView.addSubview(playersViewConrtoller.view)
         playersViewConrtoller.didMove(toParent: self)
+        print("add Player")
         
     }
     
@@ -65,6 +66,7 @@ class PartyInfoViewController: UIViewController {
             addChild(gameInfoViewController)
             childView.addSubview(gameInfoViewController.view)
             gameInfoViewController.didMove(toParent: self)
+        print("add Game")
     }
     
     @objc func segmentedValueChanged(_ sender:UISegmentedControl!) {
