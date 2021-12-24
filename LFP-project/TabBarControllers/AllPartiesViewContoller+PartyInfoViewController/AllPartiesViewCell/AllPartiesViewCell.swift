@@ -15,6 +15,8 @@ class AllPartiesViewCell: UITableViewCell {
     @IBOutlet weak var playersLabel: UILabel!
     @IBOutlet weak var nextPageImage: UIImageView!
     
+    
+    
     static let identifier = "AllPartiesViewCell"
     
     override func awakeFromNib() {
