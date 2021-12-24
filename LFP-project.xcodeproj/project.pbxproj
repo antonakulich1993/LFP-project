@@ -172,9 +172,9 @@
 		FAD70B47277464A7002FCD61 /* PartyInfoViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FAD70B4527736EC7002FCD61 /* PartyInfoViewController.swift */,
 				FAD70B492774A3C4002FCD61 /* GameInfoVIewContoller */,
 				FAD70B482774A3B1002FCD61 /* PlayersViewController */,
-				FAD70B4527736EC7002FCD61 /* PartyInfoViewController.swift */,
 			);
 			path = PartyInfoViewController;
 			sourceTree = "<group>";

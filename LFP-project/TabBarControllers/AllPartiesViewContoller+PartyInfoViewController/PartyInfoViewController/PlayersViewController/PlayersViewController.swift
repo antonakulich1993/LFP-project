@@ -19,6 +19,7 @@ class PlayersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .orange
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.leading.equalToSuperview()

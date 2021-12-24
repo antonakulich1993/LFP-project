@@ -17,31 +17,68 @@ class PartyInfoViewController: UIViewController {
         return partySegmentControl
     }()
     
+    let childView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        partySegmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
+        configureInterface()
+    }
+    
+    var playersViewConrtoller = UIViewController()
+    var gameInfoViewController = UIViewController()
+    
+    
+    func configureInterface() {
         view.addSubview(partySegmentControl)
         partySegmentControl.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(40)
             make.top.equalToSuperview().offset(100)
         }
+        partySegmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
+        
+        view.addSubview(childView)
+        childView.snp.makeConstraints { make in
+            make.top.equalTo(partySegmentControl.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(20)
+        }
+    }
+    
+    func configurePlayersViewController() {
+        let viewController = PlayersViewController()
+        playersViewConrtoller = viewController
+        addChild(playersViewConrtoller)
+        childView.addSubview(playersViewConrtoller.view)
+        playersViewConrtoller.didMove(toParent: self)
+        
+    }
+    
+    func configurePartyViewController() {
+          let viewController = GameInfoViewController()
+            gameInfoViewController = viewController
+            addChild(gameInfoViewController)
+            childView.addSubview(gameInfoViewController.view)
+            gameInfoViewController.didMove(toParent: self)
     }
     
     @objc func segmentedValueChanged(_ sender:UISegmentedControl!) {
         switch (partySegmentControl.selectedSegmentIndex) {
+            
         case 0:
-           
+            configurePlayersViewController()
             break
         case 1:
-         
+            configurePartyViewController()
             break
         default:
-            
             break
         }
     }
 }
-
 
