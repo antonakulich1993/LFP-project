@@ -31,6 +31,7 @@ class PartyInfoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureInterface()
+        configurePlayersViewController()
     }
     
     func configureInterface() {
@@ -68,14 +69,21 @@ class PartyInfoViewController: UIViewController {
             gameInfoViewController.didMove(toParent: self)
         print("add Game")
     }
+   
     
     @objc func segmentedValueChanged(_ sender:UISegmentedControl!) {
         switch (partySegmentControl.selectedSegmentIndex) {
             
         case 0:
+            gameInfoViewController.willMove(toParent: nil)
+            gameInfoViewController.removeFromParent()
+            gameInfoViewController.view.removeFromSuperview()
             configurePlayersViewController()
             break
         case 1:
+            playersViewConrtoller.willMove(toParent: nil)
+            playersViewConrtoller.removeFromParent()
+            playersViewConrtoller.view.removeFromSuperview()
             configurePartyViewController()
             break
         default:
