@@ -19,7 +19,6 @@ class PartyInfoViewController: UIViewController {
     
     let childView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
         return view
     }()
     
@@ -31,7 +30,7 @@ class PartyInfoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureInterface()
-        configurePlayersViewController()
+        addChildPlayersViewController()
     }
     
     func configureInterface() {
@@ -51,40 +50,37 @@ class PartyInfoViewController: UIViewController {
         }
     }
     
-    func configurePlayersViewController() {
+    func addChildPlayersViewController() {
         let viewController = PlayersViewController()
         playersViewConrtoller = viewController
         addChild(playersViewConrtoller)
         childView.addSubview(playersViewConrtoller.view)
         playersViewConrtoller.didMove(toParent: self)
         print("add Player")
-        
     }
     
-    func configurePartyViewController() {
-          let viewController = GameInfoViewController()
-            gameInfoViewController = viewController
-            addChild(gameInfoViewController)
-            childView.addSubview(gameInfoViewController.view)
-            gameInfoViewController.didMove(toParent: self)
+    func addChildPartyViewController() {
+        let viewController = GameInfoViewController()
+        gameInfoViewController = viewController
+        addChild(gameInfoViewController)
+        childView.addSubview(gameInfoViewController.view)
+        gameInfoViewController.didMove(toParent: self)
         print("add Game")
     }
-   
     
     @objc func segmentedValueChanged(_ sender:UISegmentedControl!) {
         switch (partySegmentControl.selectedSegmentIndex) {
-            
         case 0:
             gameInfoViewController.willMove(toParent: nil)
             gameInfoViewController.removeFromParent()
             gameInfoViewController.view.removeFromSuperview()
-            configurePlayersViewController()
+            addChildPlayersViewController()
             break
         case 1:
             playersViewConrtoller.willMove(toParent: nil)
             playersViewConrtoller.removeFromParent()
             playersViewConrtoller.view.removeFromSuperview()
-            configurePartyViewController()
+            addChildPartyViewController()
             break
         default:
             break
