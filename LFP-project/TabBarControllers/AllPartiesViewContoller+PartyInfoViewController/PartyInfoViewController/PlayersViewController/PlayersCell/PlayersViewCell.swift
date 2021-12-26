@@ -15,6 +15,7 @@ class PlayersViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .white
         
         
     }
