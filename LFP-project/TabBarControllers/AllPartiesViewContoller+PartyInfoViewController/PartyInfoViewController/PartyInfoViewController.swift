@@ -10,6 +10,7 @@ import SnapKit
 
 class PartyInfoViewController: UIViewController {
     
+    
     let partySegmentControl: UISegmentedControl = {
         let partySegmentControl = UISegmentedControl(items: ["Игроки","О игре"])
         partySegmentControl.selectedSegmentIndex = 0
@@ -51,6 +52,9 @@ class PartyInfoViewController: UIViewController {
     }
     
     func addChildPlayersViewController() {
+        gameInfoViewController.willMove(toParent: nil)
+        gameInfoViewController.removeFromParent()
+        gameInfoViewController.view.removeFromSuperview()
         let viewController = PlayersViewController()
         playersViewConrtoller = viewController
         addChild(playersViewConrtoller)
@@ -60,6 +64,9 @@ class PartyInfoViewController: UIViewController {
     }
     
     func addChildPartyViewController() {
+        playersViewConrtoller.willMove(toParent: nil)
+        playersViewConrtoller.removeFromParent()
+        playersViewConrtoller.view.removeFromSuperview()
         let viewController = GameInfoViewController()
         gameInfoViewController = viewController
         addChild(gameInfoViewController)
@@ -71,20 +78,19 @@ class PartyInfoViewController: UIViewController {
     @objc func segmentedValueChanged(_ sender:UISegmentedControl!) {
         switch (partySegmentControl.selectedSegmentIndex) {
         case 0:
-            gameInfoViewController.willMove(toParent: nil)
-            gameInfoViewController.removeFromParent()
-            gameInfoViewController.view.removeFromSuperview()
             addChildPlayersViewController()
             break
         case 1:
-            playersViewConrtoller.willMove(toParent: nil)
-            playersViewConrtoller.removeFromParent()
-            playersViewConrtoller.view.removeFromSuperview()
             addChildPartyViewController()
             break
         default:
             break
         }
+    }
+    
+    deinit {
+        print(playersViewConrtoller)
+        print(gameInfoViewController)
     }
 }
 
