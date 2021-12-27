@@ -9,7 +9,6 @@ import Foundation
 
 class DefaultsManager {
     class var token: String? {
-        
         get {
             return UserDefaults.standard.value(forKey: "token") as? String
         }

@@ -138,6 +138,7 @@ class GameInfoViewController: UIViewController {
         configureInterface()
         getGameInfo()
     }
+    
         
     func configureInterface() {
         view.addSubview(scrollView)
@@ -168,18 +169,18 @@ class GameInfoViewController: UIViewController {
     }
     
     func getGameInfo() {
-       
         guard let token = DefaultsManager.token else { return }
         
-        guard let url = URL(string: "https://lfp.monster/api/party/<\(1)>/") else { return }
+        guard let url = URL(string: "https://lfp.monster/api/party/\(id)/") else { return }
+        
         var request = URLRequest(url: url)
         request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
-        
+    
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else {
                 return print("Error")
             }
-            guard httpResponse.statusCode == 200 else {return
+            guard httpResponse.statusCode == 200 else { return
                 print("Error: \(httpResponse.statusCode)")
             }
             guard let data = data else {
@@ -188,6 +189,8 @@ class GameInfoViewController: UIViewController {
             
             let result = try? JSONDecoder().decode([AllPartiesModel].self, from: data)
             guard let result = result else { return }
+            var _ = result
         }.resume()
     }
 }
+//{\"id\":4,\"created_at\":\"2021-11-26\",\"updated_at\":\"2021-11-26\",\"location\":\"Жудро\",\"game\":\"Football\",\"date\":\"2021-12-30\",\"time\":\"11:00:00\",\"duration\":60,\"price\":\"10.00\",\"currency\":\"BYN\",\"is_price_total\":true,\"min_players\":10,\"max_players\":15,\"partymaker\":1,\"joined_usernames\":[\"Gaagle93\",\"kopytok\",\"test1\",\"Vlad\",\"Anya\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"joined_cnt\":5}"

@@ -10,6 +10,7 @@ import SnapKit
 
 class PartyInfoViewController: UIViewController {
     
+    var id = 0
     
     let partySegmentControl: UISegmentedControl = {
         let partySegmentControl = UISegmentedControl(items: ["Игроки","О игре"])
@@ -68,6 +69,7 @@ class PartyInfoViewController: UIViewController {
         playersViewConrtoller.removeFromParent()
         playersViewConrtoller.view.removeFromSuperview()
         let viewController = GameInfoViewController()
+        viewController.id = id
         gameInfoViewController = viewController
         addChild(gameInfoViewController)
         childView.addSubview(gameInfoViewController.view)
