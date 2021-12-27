@@ -70,8 +70,8 @@ extension AllPartiesViewController: UITableViewDataSource {
 
 extension AllPartiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let partyInfo = PartyInfoViewController()
-        partyInfo.id = parties[indexPath.row].id
+        let party = parties[indexPath.row]
+        let partyInfo = PartyInfoViewController(party: party)
         navigationController?.pushViewController(partyInfo, animated: true)
         
     }
