@@ -226,11 +226,11 @@
 		FADACCF22767795B00DC77F1 /* LFP-project */ = {
 			isa = PBXGroup;
 			children = (
-				FAD70B152770A05F002FCD61 /* DefaultsManager */,
+				FADACD0727677C8400DC77F1 /* LoginAndRegistrationViewContollers */,
 				FAD70B0727705923002FCD61 /* TabBarControllers */,
+				FAD70B152770A05F002FCD61 /* DefaultsManager */,
 				FA3D35272769F529009DFCBF /* CustomUIObjects */,
 				FA3D3556276C766B009DFCBF /* ModelsForRespones */,
-				FADACD0727677C8400DC77F1 /* LoginAndRegistrationViewContollers */,
 				FADACCF32767795B00DC77F1 /* AppDelegate.swift */,
 				FADACCFC2767795D00DC77F1 /* Assets.xcassets */,
 				FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */,
@@ -242,8 +242,8 @@
 		FADACD0727677C8400DC77F1 /* LoginAndRegistrationViewContollers */ = {
 			isa = PBXGroup;
 			children = (
-				FA3D3559276C7DDF009DFCBF /* RegistrationViewController */,
 				FADACD0827677C9300DC77F1 /* LoginViewContoller */,
+				FA3D3559276C7DDF009DFCBF /* RegistrationViewController */,
 			);
 			path = LoginAndRegistrationViewContollers;
 			sourceTree = "<group>";

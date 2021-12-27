@@ -10,7 +10,6 @@ import SnapKit
 
 class GameInfoViewController: UIViewController {
     
-    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
@@ -132,16 +131,14 @@ class GameInfoViewController: UIViewController {
         return label
     }()
     
+    var id = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
+        getGameInfo()
     }
-    
-    func getPartyInfo() {
         
-    }
-    
     func configureInterface() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
@@ -168,5 +165,29 @@ class GameInfoViewController: UIViewController {
         scrollViewContainer.addArrangedSubview(currencyLabel)
         scrollViewContainer.addArrangedSubview(minPlayersLabel)
         scrollViewContainer.addArrangedSubview(maxPlayersLabel)
+    }
+    
+    func getGameInfo() {
+       
+        guard let token = DefaultsManager.token else { return }
+        
+        guard let url = URL(string: "https://lfp.monster/api/party/<\(1)>/") else { return }
+        var request = URLRequest(url: url)
+        request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                return print("Error")
+            }
+            guard httpResponse.statusCode == 200 else {return
+                print("Error: \(httpResponse.statusCode)")
+            }
+            guard let data = data else {
+                return
+            }
+            
+            let result = try? JSONDecoder().decode([AllPartiesModel].self, from: data)
+            guard let result = result else { return }
+        }.resume()
     }
 }
