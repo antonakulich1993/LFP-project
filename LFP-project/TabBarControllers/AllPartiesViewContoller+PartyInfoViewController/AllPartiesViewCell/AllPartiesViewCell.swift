@@ -15,8 +15,6 @@ class AllPartiesViewCell: UITableViewCell {
     @IBOutlet weak var playersLabel: UILabel!
     @IBOutlet weak var nextPageImage: UIImageView!
     
-    var id = 0
-    
     static let identifier = "AllPartiesViewCell"
     
     override func awakeFromNib() {
@@ -31,7 +29,5 @@ class AllPartiesViewCell: UITableViewCell {
         startTimeLabel.text = "Начало в \(parties.time)"
         playersLabel.text = "Количество игроков MAX: \(parties.maxPlayers)/ MIN: \(parties.minPlayers)"
         nextPageImage.image = UIImage(named: "next")
-        id = parties.id
-        
     }
 }
