@@ -26,6 +26,8 @@
 		FAD70B512774A643002FCD61 /* PlayersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B4F2774A643002FCD61 /* PlayersViewCell.swift */; };
 		FAD70B522774A643002FCD61 /* PlayersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B502774A643002FCD61 /* PlayersViewCell.xib */; };
 		FAD70B782779B8A5002FCD61 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B772779B8A4002FCD61 /* ID.swift */; };
+		FAD70B7C2779F287002FCD61 /* GameInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */; };
+		FAD70B7D2779F287002FCD61 /* GameInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
@@ -54,6 +56,8 @@
 		FAD70B4F2774A643002FCD61 /* PlayersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewCell.swift; sourceTree = "<group>"; };
 		FAD70B502774A643002FCD61 /* PlayersViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayersViewCell.xib; sourceTree = "<group>"; };
 		FAD70B772779B8A4002FCD61 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
+		FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoTableViewCell.swift; sourceTree = "<group>"; };
+		FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoTableViewCell.xib; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 		FAD70B492774A3C4002FCD61 /* GameInfoVIewContoller */ = {
 			isa = PBXGroup;
 			children = (
+				FAD70B792779F267002FCD61 /* GameInfoCell */,
 				FAD70B4A2774A3DE002FCD61 /* GameInfoViewController.swift */,
 			);
 			path = GameInfoVIewContoller;
@@ -213,6 +218,15 @@
 				FAD70B772779B8A4002FCD61 /* ID.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FAD70B792779F267002FCD61 /* GameInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */,
+				FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */,
+			);
+			path = GameInfoCell;
 			sourceTree = "<group>";
 		};
 		FADACCE72767795B00DC77F1 = {
@@ -329,6 +343,7 @@
 			files = (
 				FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */,
 				FAD70B44277200E3002FCD61 /* AllPartiesViewCell.xib in Resources */,
+				FAD70B7D2779F287002FCD61 /* GameInfoTableViewCell.xib in Resources */,
 				FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */,
 				FAD70B522774A643002FCD61 /* PlayersViewCell.xib in Resources */,
 			);
@@ -387,6 +402,7 @@
 				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
 				FAD70B782779B8A5002FCD61 /* ID.swift in Sources */,
 				FAD70B14277090DA002FCD61 /* Token.swift in Sources */,
+				FAD70B7C2779F287002FCD61 /* GameInfoTableViewCell.swift in Sources */,
 				FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */,
 				FAD70B1027705AC6002FCD61 /* AddPartyViewController.swift in Sources */,
 				FAD70B4D2774A3EF002FCD61 /* PlayersViewController.swift in Sources */,

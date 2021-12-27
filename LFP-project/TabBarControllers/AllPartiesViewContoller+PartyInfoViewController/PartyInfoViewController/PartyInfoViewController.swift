@@ -10,7 +10,17 @@ import SnapKit
 
 class PartyInfoViewController: UIViewController {
     
-    var id = 0
+    private let party: AllPartiesModel
+    
+    init(party: AllPartiesModel) {
+        self.party = party
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let partySegmentControl: UISegmentedControl = {
         let partySegmentControl = UISegmentedControl(items: ["Игроки","О игре"])
@@ -68,8 +78,7 @@ class PartyInfoViewController: UIViewController {
         playersViewConrtoller.willMove(toParent: nil)
         playersViewConrtoller.removeFromParent()
         playersViewConrtoller.view.removeFromSuperview()
-        let viewController = GameInfoViewController()
-        viewController.id = id
+        let viewController = GameInfoViewController(party: party)
         gameInfoViewController = viewController
         addChild(gameInfoViewController)
         childView.addSubview(gameInfoViewController.view)

@@ -10,12 +10,24 @@ import SnapKit
 
 class GameInfoViewController: UIViewController {
     
+    private let party: AllPartiesModel
+    
+    init(party: AllPartiesModel) {
+        self.party = party
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         return scrollView
     }()
-    
+
     let scrollViewContainer: UIStackView = {
         let scrollViewContainer = UIStackView()
         scrollViewContainer.spacing = 20
@@ -72,7 +84,7 @@ class GameInfoViewController: UIViewController {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
-    
+
     let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "date"
@@ -121,7 +133,7 @@ class GameInfoViewController: UIViewController {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
-    
+
     let maxPlayersLabel: UILabel = {
         let label = UILabel()
         label.text = "maxPlayers"
@@ -131,7 +143,7 @@ class GameInfoViewController: UIViewController {
         return label
     }()
     
-    var id = 0
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,7 +158,7 @@ class GameInfoViewController: UIViewController {
             make.top.equalToSuperview().offset(20)
             make.leading.trailing.bottom.equalToSuperview().inset(16)
         }
-        
+
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(scrollView)
@@ -166,31 +178,43 @@ class GameInfoViewController: UIViewController {
         scrollViewContainer.addArrangedSubview(currencyLabel)
         scrollViewContainer.addArrangedSubview(minPlayersLabel)
         scrollViewContainer.addArrangedSubview(maxPlayersLabel)
-    }
-    
-    func getGameInfo() {
-        guard let token = DefaultsManager.token else { return }
         
-        guard let url = URL(string: "https://lfp.monster/api/party/\(id)/") else { return }
+        idLabel.text = "ID игры: \(party.id)"
+        createdAtLabel.text = "Игра создана в \(party.createdAt)"
+        updatedAtLabel.text = "Игра обновлена \(party.updatedAt)"
+        partyMakerLabel.text = "Игру создал: \(party.partymaker)"
+        locationLabel.text = "Местоположение: \(party.location)"
+        gameLabel.text = "Игра: \(party.game)"
+        dateLabel.text = "Дата: \(party.date)"
+        timeLabel.text = "Время начала: \(party.time)"
+        durationLabel.text = "Время продолжительности игры: \(party.duration)"
+        priceLabel.text = "Стоимсоть: \(party.price)"
+        currencyLabel.text = "Валюта: \(party.currency)"
+        minPlayersLabel.text = "Минимальноe количество игроков: \(party.minPlayers)"
+        maxPlayersLabel.text = "Максимальное количество игроков: \(party.maxPlayers)"
         
-        var request = URLRequest(url: url)
-        request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
-    
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse else {
-                return print("Error")
-            }
-            guard httpResponse.statusCode == 200 else { return
-                print("Error: \(httpResponse.statusCode)")
-            }
-            guard let data = data else {
-                return
-            }
-            
-            let result = try? JSONDecoder().decode([AllPartiesModel].self, from: data)
-            guard let result = result else { return }
-            var _ = result
-        }.resume()
+        
     }
 }
+
+extension GameInfoViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 14
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: GameInfoTableViewCell.identifier, for: indexPath)
+        return cell
+    }
+    
+    
+}
 //{\"id\":4,\"created_at\":\"2021-11-26\",\"updated_at\":\"2021-11-26\",\"location\":\"Жудро\",\"game\":\"Football\",\"date\":\"2021-12-30\",\"time\":\"11:00:00\",\"duration\":60,\"price\":\"10.00\",\"currency\":\"BYN\",\"is_price_total\":true,\"min_players\":10,\"max_players\":15,\"partymaker\":1,\"joined_usernames\":[\"Gaagle93\",\"kopytok\",\"test1\",\"Vlad\",\"Anya\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"joined_cnt\":5}"
+
+
+
+//var bottomLine = CALayer()
+//    bottomLine.frame = CGRectMake(0.0, view.frame.height - 1, view.frame.width, 1.0)
+//    bottomLine.backgroundColor = UIColor.whiteColor().CGColor
+//    tf_editPassword.borderStyle = UITextBorderStyle.None
+//    tf_editPassword.layer.addSublayer(bottomLine)
