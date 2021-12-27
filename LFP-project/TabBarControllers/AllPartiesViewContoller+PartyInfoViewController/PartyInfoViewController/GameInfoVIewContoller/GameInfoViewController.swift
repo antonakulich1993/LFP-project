@@ -143,15 +143,11 @@ class GameInfoViewController: UIViewController {
         return label
     }()
     
- 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
-        getGameInfo()
     }
     
-        
     func configureInterface() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
@@ -192,22 +188,7 @@ class GameInfoViewController: UIViewController {
         currencyLabel.text = "Валюта: \(party.currency)"
         minPlayersLabel.text = "Минимальноe количество игроков: \(party.minPlayers)"
         maxPlayersLabel.text = "Максимальное количество игроков: \(party.maxPlayers)"
-        
-        
     }
-}
-
-extension GameInfoViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 14
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: GameInfoTableViewCell.identifier, for: indexPath)
-        return cell
-    }
-    
-    
 }
 //{\"id\":4,\"created_at\":\"2021-11-26\",\"updated_at\":\"2021-11-26\",\"location\":\"Жудро\",\"game\":\"Football\",\"date\":\"2021-12-30\",\"time\":\"11:00:00\",\"duration\":60,\"price\":\"10.00\",\"currency\":\"BYN\",\"is_price_total\":true,\"min_players\":10,\"max_players\":15,\"partymaker\":1,\"joined_usernames\":[\"Gaagle93\",\"kopytok\",\"test1\",\"Vlad\",\"Anya\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"joined_cnt\":5}"
 
