@@ -42,5 +42,4 @@ struct AllPartiesModel: Decodable {
     let partymaker: Int
     let isPriceTotal: Bool
 }
-//[{\"id\":4,\"created_at\":\"2021-11-26\",\"updated_at\":\"2021-11-26\",\"location\":\"Жудро\",\"game\":\"Football\",\"date\":\"2021-12-30\",\"time\":\"11:00:00\",\"duration\":60,\"price\":\"10.00\",\"currency\":\"BYN\",\"is_price_total\":true,\"min_players\":10,\"max_players\":15,\"partymaker\":1}
-//Thread 8: Fatal error: 'try!' expression unexpectedly raised an error: Swift.DecodingError.typeMismatch(Swift.Double, Swift.DecodingError.Context(codingPath: [_JSONKey(stringValue: "Index 0", intValue: 0), CodingKeys(stringValue: "price", intValue: nil)], debugDescription: "Expected to decode Double but found a string/data instead.", underlyingError: nil))
+
