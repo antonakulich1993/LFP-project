@@ -19,12 +19,7 @@ class AddPartyViewController: UIViewController {
     
     let scrollViewContainer: UIView = {
         let scrollViewContainer = UIView()
-//        scrollViewContainer.spacing = 20
-//        scrollViewContainer.axis = .vertical
-//        scrollViewContainer.alignment = .fill
-//        scrollViewContainer.distribution = .fillEqually
         scrollViewContainer.backgroundColor = .white
-//        scrollViewContainer.translatesAutoresizingMaskIntoConstraints = false
         return scrollViewContainer
     }()
     
@@ -130,8 +125,6 @@ class AddPartyViewController: UIViewController {
         return currencyField
     }()
     
-    
-    
     let addPartyButton: DarkBlueButton = {
         let addPartyButton = DarkBlueButton(title: "Создать игру")
         return addPartyButton
@@ -140,10 +133,48 @@ class AddPartyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
+        addPartyButton.addTarget(self, action: #selector(addParty), for: .touchUpInside)
+    }
+    
+    @objc func addParty() {
+        guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
+        guard let game = gameField.text,
+        let date = dateField.text,
+        let location = locationField.text,
+        let time = timeField.text,
+        let duration = gameDurationField.text,
+        let price = priceField.text,
+        let currency = currencyField.text,
+        let maxPlayers = maxPlayersField.text,
+        let minPlayers = minPlayersField.text
+        else { return }
+        
+        guard let token = DefaultsManager.token else { return }
+        var request = URLRequest(url: url)
+        request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-type")
+        request.httpMethod = "POST"
+        guard let httpBody = try? JSONEncoder().encode(AddPartyModel(game: game, location: location, date: date, time: time, duration: Int(duration)!, price: price, currensy: currency, maxPlayers: Int(maxPlayers)!, minPlayers: Int(minPlayers)!).self) else { return }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse else {
+                return print("Error")
+            }
+            guard httpResponse.statusCode == 201 else {
+                return print("Error: \(httpResponse.statusCode)")
+            }
+            let result = try? JSONSerialization.jsonObject(with: data, options: [])
+            guard let result = result else { return }
+            print(result)
+        }.resume()
     }
     
     func configureInterface() {
-        
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
