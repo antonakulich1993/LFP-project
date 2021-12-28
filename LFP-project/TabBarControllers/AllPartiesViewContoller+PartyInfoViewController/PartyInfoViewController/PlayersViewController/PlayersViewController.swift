@@ -10,9 +10,20 @@ import SnapKit
 
 class PlayersViewController: UIViewController {
     
+    private let party: AllPartiesModel
+    
+    init(party: AllPartiesModel) {
+        self.party = party
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var players: [String] = []
     var joinedPlayers = 0
-    var id = 0
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -36,7 +47,7 @@ class PlayersViewController: UIViewController {
     }
     
     func getPlayer() {
-        guard let url = URL(string: "https://lfp.monster/api/party/4/") else { return }
+        guard let url = URL(string: "https://lfp.monster/api/party/\(party.id)/") else { return }
         guard let token = DefaultsManager.token else { return }
         var request = URLRequest(url: url)
         request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
