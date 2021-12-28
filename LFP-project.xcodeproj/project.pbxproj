@@ -25,7 +25,6 @@
 		FAD70B4D2774A3EF002FCD61 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B4C2774A3EF002FCD61 /* PlayersViewController.swift */; };
 		FAD70B512774A643002FCD61 /* PlayersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B4F2774A643002FCD61 /* PlayersViewCell.swift */; };
 		FAD70B522774A643002FCD61 /* PlayersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B502774A643002FCD61 /* PlayersViewCell.xib */; };
-		FAD70B782779B8A5002FCD61 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B772779B8A4002FCD61 /* ID.swift */; };
 		FAD70B7C2779F287002FCD61 /* GameInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */; };
 		FAD70B7D2779F287002FCD61 /* GameInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */; };
 		FAD70BA5277B24A1002FCD61 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70BA4277B24A1002FCD61 /* Players.swift */; };
@@ -56,7 +55,6 @@
 		FAD70B4C2774A3EF002FCD61 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		FAD70B4F2774A643002FCD61 /* PlayersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewCell.swift; sourceTree = "<group>"; };
 		FAD70B502774A643002FCD61 /* PlayersViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayersViewCell.xib; sourceTree = "<group>"; };
-		FAD70B772779B8A4002FCD61 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
 		FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoTableViewCell.swift; sourceTree = "<group>"; };
 		FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoTableViewCell.xib; sourceTree = "<group>"; };
 		FAD70BA4277B24A1002FCD61 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
@@ -215,14 +213,6 @@
 			path = PlayersCell;
 			sourceTree = "<group>";
 		};
-		FAD70B762779B892002FCD61 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				FAD70B772779B8A4002FCD61 /* ID.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		FAD70B792779F267002FCD61 /* GameInfoCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,7 +248,6 @@
 				FAD70B152770A05F002FCD61 /* DefaultsManager */,
 				FA3D35272769F529009DFCBF /* CustomUIObjects */,
 				FA3D3556276C766B009DFCBF /* ModelsForRespones */,
-				FAD70B762779B892002FCD61 /* Models */,
 				FADACCF32767795B00DC77F1 /* AppDelegate.swift */,
 				FADACCFC2767795D00DC77F1 /* Assets.xcassets */,
 				FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */,
@@ -403,7 +392,6 @@
 			files = (
 				FA3D35292769F53F009DFCBF /* DarkBlueButton.swift in Sources */,
 				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
-				FAD70B782779B8A5002FCD61 /* ID.swift in Sources */,
 				FAD70B14277090DA002FCD61 /* Token.swift in Sources */,
 				FAD70B7C2779F287002FCD61 /* GameInfoTableViewCell.swift in Sources */,
 				FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */,

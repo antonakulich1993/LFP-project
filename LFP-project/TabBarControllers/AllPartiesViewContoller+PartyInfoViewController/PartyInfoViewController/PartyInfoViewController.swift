@@ -66,7 +66,7 @@ class PartyInfoViewController: UIViewController {
         gameInfoViewController.willMove(toParent: nil)
         gameInfoViewController.removeFromParent()
         gameInfoViewController.view.removeFromSuperview()
-        let viewController = PlayersViewController()
+        let viewController = PlayersViewController(party: party)
         playersViewConrtoller = viewController
         addChild(playersViewConrtoller)
         childView.addSubview(playersViewConrtoller.view)
