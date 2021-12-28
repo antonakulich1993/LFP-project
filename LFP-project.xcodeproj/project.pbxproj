@@ -28,6 +28,7 @@
 		FAD70B782779B8A5002FCD61 /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B772779B8A4002FCD61 /* ID.swift */; };
 		FAD70B7C2779F287002FCD61 /* GameInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */; };
 		FAD70B7D2779F287002FCD61 /* GameInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */; };
+		FAD70BA5277B24A1002FCD61 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70BA4277B24A1002FCD61 /* Players.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
@@ -58,6 +59,7 @@
 		FAD70B772779B8A4002FCD61 /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
 		FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoTableViewCell.swift; sourceTree = "<group>"; };
 		FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoTableViewCell.xib; sourceTree = "<group>"; };
+		FAD70BA4277B24A1002FCD61 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				FAD70B13277090DA002FCD61 /* Token.swift */,
 				FAD70B3F2771FC41002FCD61 /* AllPartiesModel.swift */,
+				FAD70BA4277B24A1002FCD61 /* Players.swift */,
 			);
 			path = ModelsForRespones;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				FAD70B4627736EC7002FCD61 /* PartyInfoViewController.swift in Sources */,
 				FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */,
 				FAD70B1227705AE7002FCD61 /* ProfileInfoViewController.swift in Sources */,
+				FAD70BA5277B24A1002FCD61 /* Players.swift in Sources */,
 				FAD70B512774A643002FCD61 /* PlayersViewCell.swift in Sources */,
 				FAD70B0E27705AB4002FCD61 /* AllPartiesViewController.swift in Sources */,
 				FAD70B402771FC41002FCD61 /* AllPartiesModel.swift in Sources */,

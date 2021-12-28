@@ -27,7 +27,7 @@ class GameInfoViewController: UIViewController {
         scrollView.backgroundColor = .white
         return scrollView
     }()
-
+    
     let scrollViewContainer: UIStackView = {
         let scrollViewContainer = UIStackView()
         scrollViewContainer.spacing = 20
@@ -84,7 +84,7 @@ class GameInfoViewController: UIViewController {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
-
+    
     let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "date"
@@ -133,7 +133,7 @@ class GameInfoViewController: UIViewController {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
-
+    
     let maxPlayersLabel: UILabel = {
         let label = UILabel()
         label.text = "maxPlayers"
@@ -154,7 +154,7 @@ class GameInfoViewController: UIViewController {
             make.top.equalToSuperview().offset(20)
             make.leading.trailing.bottom.equalToSuperview().inset(16)
         }
-
+        
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(scrollView)
@@ -190,12 +190,3 @@ class GameInfoViewController: UIViewController {
         maxPlayersLabel.text = "Максимальное количество игроков: \(party.maxPlayers)"
     }
 }
-//{\"id\":4,\"created_at\":\"2021-11-26\",\"updated_at\":\"2021-11-26\",\"location\":\"Жудро\",\"game\":\"Football\",\"date\":\"2021-12-30\",\"time\":\"11:00:00\",\"duration\":60,\"price\":\"10.00\",\"currency\":\"BYN\",\"is_price_total\":true,\"min_players\":10,\"max_players\":15,\"partymaker\":1,\"joined_usernames\":[\"Gaagle93\",\"kopytok\",\"test1\",\"Vlad\",\"Anya\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"joined_cnt\":5}"
-
-
-
-//var bottomLine = CALayer()
-//    bottomLine.frame = CGRectMake(0.0, view.frame.height - 1, view.frame.width, 1.0)
-//    bottomLine.backgroundColor = UIColor.whiteColor().CGColor
-//    tf_editPassword.borderStyle = UITextBorderStyle.None
-//    tf_editPassword.layer.addSublayer(bottomLine)
