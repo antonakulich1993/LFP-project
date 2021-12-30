@@ -34,6 +34,8 @@ class PartyInfoViewController: UIViewController {
         return view
     }()
     
+    
+    
     var playersViewConrtoller = UIViewController()
     var gameInfoViewController = UIViewController()
     
@@ -60,6 +62,30 @@ class PartyInfoViewController: UIViewController {
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().inset(20)
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Вступить в группу",
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(joinParty))
+    }
+    
+    @objc func joinParty() {
+        guard let url = URL(string: "https://lfp.monster/api/party/\(party.id)/join") else { return }
+        guard let token = DefaultsManager.token else { return }
+        
+        var request = URLRequest(url: url)
+        request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-type")
+        request.httpMethod = "POST"
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse else { return print("Error")
+            }
+            guard httpResponse.statusCode == 201 else {
+                return print("Error: \(httpResponse.statusCode)")
+            }
+        }.resume()
     }
     
     func addChildPlayersViewController() {

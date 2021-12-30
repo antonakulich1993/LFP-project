@@ -14,7 +14,7 @@ struct AddPartyModel: Codable {
    let time: String
    let duration: Int
    let price: String
-   let currensy: String
+   let currenсy: String
    let maxPlayers: Int
    let minPlayers: Int
 }
