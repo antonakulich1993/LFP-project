@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol UpdatePage {
+    func updateParties()
+}
+
 class AllPartiesViewController: UIViewController {
     
     var parties: [AllPartiesModel] = []
@@ -80,4 +84,3 @@ extension AllPartiesViewController: UITableViewDelegate {
         
     }
 }
-

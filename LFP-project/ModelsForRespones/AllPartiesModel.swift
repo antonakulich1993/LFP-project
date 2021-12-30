@@ -36,7 +36,7 @@ struct AllPartiesModel: Decodable {
     let date: String
     let time: String
     let duration: Int
-    let price: String?
+    let price: String
     let minPlayers: Int
     let maxPlayers: Int
     let partymaker: Int
