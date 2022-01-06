@@ -11,6 +11,8 @@ import LineTextField
 
 class AddPartyViewController: UIViewController {
     
+    let alert = Alert.addPartyError.controller
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
@@ -66,7 +68,7 @@ class AddPartyViewController: UIViewController {
         let dateField = LineTextField()
         dateField.lineColorDefault = UIColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         dateField.lineColorActive = UIColor.black
-        dateField.placeholder = "Дата начала игры"
+        dateField.placeholder = "Дата в формате: YYYY-MM-DD"
         dateField.floatingPlaceholder = true
         return dateField
     }()
@@ -75,7 +77,7 @@ class AddPartyViewController: UIViewController {
         let timeField = LineTextField()
         timeField.lineColorDefault = UIColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         timeField.lineColorActive = UIColor.black
-        timeField.placeholder = "Время начала игры"
+        timeField.placeholder = "Время начала игры в формате: 16:35:00"
         timeField.floatingPlaceholder = true
         return timeField
     }()
@@ -138,16 +140,23 @@ class AddPartyViewController: UIViewController {
     
     @objc func addParty() {
         guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
-        guard let game = gameField.text,
-        let date = dateField.text,
-        let location = locationField.text,
-        let time = timeField.text,
-        let duration = gameDurationField.text,
-        let price = priceField.text,
-        let currency = currencyField.text,
-        let maxPlayers = maxPlayersField.text,
-        let minPlayers = minPlayersField.text
-        else { return }
+        guard let game = gameField.text, !game.isEmpty,
+        let date = dateField.text, !date.isEmpty,
+        let location = locationField.text, !location.isEmpty,
+        let time = timeField.text, !time.isEmpty,
+        let duration = gameDurationField.text, !duration.isEmpty,
+        let price = priceField.text, !price.isEmpty,
+        let currency = currencyField.text, !currency.isEmpty,
+        let maxPlayers = maxPlayersField.text, !maxPlayers.isEmpty,
+        let minPlayers = minPlayersField.text, !minPlayers.isEmpty
+        else {
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+                                          present(alert, animated: true)
+            return
+        }
+        
+       
+        
         let partyModel = AddPartyModel(game: game, location: location, date: date, time: time, duration: Int(duration)!, price: Int(price)!, currenсy: currency, maxPlayers: maxPlayers, minPlayers: minPlayers)
         
         guard let httpBody = try? JSONEncoder().encode(partyModel) else { return }

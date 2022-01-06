@@ -29,6 +29,7 @@
 		FAD70B7D2779F287002FCD61 /* GameInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */; };
 		FAD70BA5277B24A1002FCD61 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70BA4277B24A1002FCD61 /* Players.swift */; };
 		FAD70BA7277B3A41002FCD61 /* AddPartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70BA6277B3A41002FCD61 /* AddPartyModel.swift */; };
+		FAD70C5127872643002FCD61 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70C5027872642002FCD61 /* Alerts.swift */; };
 		FADACCF42767795B00DC77F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADACCF32767795B00DC77F1 /* AppDelegate.swift */; };
 		FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFC2767795D00DC77F1 /* Assets.xcassets */; };
 		FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */; };
@@ -60,6 +61,7 @@
 		FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoTableViewCell.xib; sourceTree = "<group>"; };
 		FAD70BA4277B24A1002FCD61 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		FAD70BA6277B3A41002FCD61 /* AddPartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyModel.swift; sourceTree = "<group>"; };
+		FAD70C5027872642002FCD61 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		FADACCF02767795B00DC77F1 /* LFP-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LFP-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADACCF32767795B00DC77F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADACCFC2767795D00DC77F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,6 +227,14 @@
 			path = GameInfoCell;
 			sourceTree = "<group>";
 		};
+		FAD70C4F27872633002FCD61 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				FAD70C5027872642002FCD61 /* Alerts.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
 		FADACCE72767795B00DC77F1 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +261,7 @@
 				FAD70B152770A05F002FCD61 /* DefaultsManager */,
 				FA3D35272769F529009DFCBF /* CustomUIObjects */,
 				FA3D3556276C766B009DFCBF /* ModelsForRespones */,
+				FAD70C4F27872633002FCD61 /* Alerts */,
 				FADACCF32767795B00DC77F1 /* AppDelegate.swift */,
 				FADACCFC2767795D00DC77F1 /* Assets.xcassets */,
 				FADACCFE2767795D00DC77F1 /* LaunchScreen.storyboard */,
@@ -412,6 +423,7 @@
 				FAD70BA5277B24A1002FCD61 /* Players.swift in Sources */,
 				FAD70B512774A643002FCD61 /* PlayersViewCell.swift in Sources */,
 				FAD70B0E27705AB4002FCD61 /* AllPartiesViewController.swift in Sources */,
+				FAD70C5127872643002FCD61 /* Alerts.swift in Sources */,
 				FAD70B402771FC41002FCD61 /* AllPartiesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
