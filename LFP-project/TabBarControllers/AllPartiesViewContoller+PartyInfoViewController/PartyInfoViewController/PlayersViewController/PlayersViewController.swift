@@ -28,8 +28,15 @@ class PlayersViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.refreshControl = myRefreshControl
         tableView.register(UINib(nibName: String(describing: PlayersViewCell.self), bundle: nil), forCellReuseIdentifier: PlayersViewCell.identifier)
         return tableView
+    }()
+    
+    let myRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        return refreshControl
     }()
 
     override func viewDidLoad() {
@@ -71,6 +78,11 @@ class PlayersViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }.resume()
+    }
+    
+    @objc private func refresh(sender: UIRefreshControl) {
+        getPlayer()
+        sender.endRefreshing()
     }
 }
 

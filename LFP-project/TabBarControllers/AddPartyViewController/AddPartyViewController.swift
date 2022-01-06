@@ -148,7 +148,9 @@ class AddPartyViewController: UIViewController {
         let maxPlayers = maxPlayersField.text,
         let minPlayers = minPlayersField.text
         else { return }
-        guard let httpBody = try? JSONEncoder().encode(AddPartyModel(game: game, location: location, date: date, time: time, duration: Int(duration)!, price: price, currenсy: currency, maxPlayers: Int(maxPlayers)!, minPlayers: Int(minPlayers)!)) else { return }
+        let partyModel = AddPartyModel(game: game, location: location, date: date, time: time, duration: Int(duration)!, price: Int(price)!, currenсy: currency, maxPlayers: maxPlayers, minPlayers: minPlayers)
+        
+        guard let httpBody = try? JSONEncoder().encode(partyModel) else { return }
       
         
         guard let token = DefaultsManager.token else { return }
@@ -158,7 +160,7 @@ class AddPartyViewController: UIViewController {
         request.setValue("application/json", forHTTPHeaderField: "Content-type")
         request.httpMethod = "POST"
         request.httpBody = httpBody
-        
+        //Making Party
         let session = URLSession.shared
         session.dataTask(with: request) { data, response, error in
             guard let data = data else {

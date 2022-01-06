@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 class AllPartiesViewController: UIViewController {
     
     var parties: [AllPartiesModel] = []
@@ -16,9 +17,16 @@ class AllPartiesViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.refreshControl = myRefreshControl
         tableView.register(UINib(nibName: String(describing: AllPartiesViewCell.self), bundle: nil), forCellReuseIdentifier: AllPartiesViewCell.identifier)
         tableView.estimatedRowHeight = 130
         return tableView
+    }()
+    
+    let myRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        return refreshControl
     }()
     
     override func viewDidLoad() {
@@ -26,7 +34,7 @@ class AllPartiesViewController: UIViewController {
         configureInterface()
         getParties()
     }
-
+    
     func configureInterface() {
         view.backgroundColor = .white
         view.addSubview(tableView)
@@ -58,6 +66,11 @@ class AllPartiesViewController: UIViewController {
             }
         }.resume()
     }
+    
+    @objc private func refresh(sender: UIRefreshControl) {
+        getParties()
+        sender.endRefreshing()
+    }
 }
 
 extension AllPartiesViewController: UITableViewDataSource {
@@ -80,4 +93,3 @@ extension AllPartiesViewController: UITableViewDelegate {
         
     }
 }
-
