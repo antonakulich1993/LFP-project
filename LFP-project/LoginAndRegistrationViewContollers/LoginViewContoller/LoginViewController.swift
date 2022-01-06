@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
     }()
     
     let registrationButton: UIButton = {
-        let registrationButton = UIButton(type: .system)
+        let registrationButton = UIButton()
         registrationButton.backgroundColor = UIColor(red: 0.58, green: 0.59, blue: 0.69, alpha: 1.0)
         registrationButton.setTitle("Зарегистрироваться", for: .normal)
         registrationButton.layer.cornerRadius = 8
