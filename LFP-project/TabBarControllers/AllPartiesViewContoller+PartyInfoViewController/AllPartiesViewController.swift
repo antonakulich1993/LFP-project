@@ -25,7 +25,7 @@ class AllPartiesViewController: UIViewController {
     
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Обновление групп")
         return refreshControl
     }()
     
@@ -33,6 +33,7 @@ class AllPartiesViewController: UIViewController {
         super.viewDidLoad()
         configureInterface()
         getParties()
+        myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
     }
     
     func configureInterface() {

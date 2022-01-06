@@ -34,11 +34,8 @@ class PartyInfoViewController: UIViewController {
         return view
     }()
     
-    
-    
     var playersViewConrtoller = UIViewController()
     var gameInfoViewController = UIViewController()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

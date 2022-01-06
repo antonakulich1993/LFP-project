@@ -35,7 +35,7 @@ class PlayersViewController: UIViewController {
     
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Обновление игроков")
         return refreshControl
     }()
 
@@ -43,6 +43,7 @@ class PlayersViewController: UIViewController {
         super.viewDidLoad()
         configureInterface()
         getPlayer()
+       myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
     }
     func configureInterface() {
         view.backgroundColor = .white
