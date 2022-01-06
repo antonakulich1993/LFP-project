@@ -12,6 +12,7 @@ enum Alert {
     case loginError
     case regisrationError
     case addPartyError
+    case postPartyError
     
     var controller: UIAlertController {
         return UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -23,13 +24,13 @@ enum Alert {
     
     private var title: String? {
         switch self {
-            
         case .loginError:
             return "Ошибка входа!"
-            
         case .regisrationError:
             return "Ошибка регистрации"
         case .addPartyError:
+            return "Ошибка создания игры"
+        case .postPartyError:
             return "Ошибка создания игры"
         }
     }
@@ -40,9 +41,10 @@ enum Alert {
             return "Вы ввели неправильный аккаунт или пароль"
         case .regisrationError:
             return "Проверьте совпадение паролей"
-            
         case .addPartyError:
             return "Проверьте заполнение всех полей"
+        case .postPartyError:
+            return "Проверьте формат даты и времени"
         }
     }
 }

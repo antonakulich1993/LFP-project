@@ -11,8 +11,6 @@ import LineTextField
 
 class AddPartyViewController: UIViewController {
     
-    let alert = Alert.addPartyError.controller
-    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
@@ -132,6 +130,18 @@ class AddPartyViewController: UIViewController {
         return addPartyButton
     }()
     
+    func emptyFieldAlert() {
+        let alert = Alert.addPartyError.controller
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        present(alert, animated: true, completion: nil)
+    }
+    
+    func createPartyAlert() {
+        let alert = Alert.postPartyError.sheet
+        alert.addAction(UIAlertAction(title: "ok", style: .default))
+                        present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
@@ -150,12 +160,9 @@ class AddPartyViewController: UIViewController {
         let maxPlayers = maxPlayersField.text, !maxPlayers.isEmpty,
         let minPlayers = minPlayersField.text, !minPlayers.isEmpty
         else {
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-                                          present(alert, animated: true)
+            emptyFieldAlert()
             return
         }
-        
-       
         
         let partyModel = AddPartyModel(game: game, location: location, date: date, time: time, duration: Int(duration)!, price: Int(price)!, currenсy: currency, maxPlayers: maxPlayers, minPlayers: minPlayers)
         
@@ -176,10 +183,14 @@ class AddPartyViewController: UIViewController {
                 return
             }
             guard let httpResponse = response as? HTTPURLResponse else {
-                return print("Error")
+                return
             }
             guard httpResponse.statusCode == 201 else {
-                return print("Error: \(httpResponse.statusCode)")
+                DispatchQueue.main.async {
+                    self.createPartyAlert()
+                }
+                print("Error: \(httpResponse.statusCode)")
+                return
             }
             let result = try? JSONSerialization.jsonObject(with: data, options: [])
             guard let result = result else { return }
