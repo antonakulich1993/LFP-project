@@ -79,8 +79,17 @@ class PartyInfoViewController: UIViewController {
         session.dataTask(with: request) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else { return print("Error")
             }
-            if httpResponse.statusCode == 201 || httpResponse.statusCode == 201 {
+            if httpResponse.statusCode == 201  {
+                DispatchQueue.main.async {
+                    self.navigationItem.rightBarButtonItem?.title = "Покинуть группу"
+                    self.navigationItem.rightBarButtonItem?.tintColor = .red
+                }
                 return print("Error: \(httpResponse.statusCode)")
+            } else if httpResponse.statusCode == 204 {
+                DispatchQueue.main.async {
+                    self.navigationItem.rightBarButtonItem?.title = "Вступить в группу"
+                    self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+                }
             }
         }.resume()
         DispatchQueue.main.async {
