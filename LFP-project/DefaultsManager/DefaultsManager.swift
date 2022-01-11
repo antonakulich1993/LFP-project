@@ -12,7 +12,6 @@ class DefaultsManager {
         get {
             return UserDefaults.standard.value(forKey: "token") as? String
         }
-        
         set {
             UserDefaults.standard.set(newValue, forKey: "token")
         }

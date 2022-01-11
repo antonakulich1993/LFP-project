@@ -45,6 +45,7 @@ class PlayersViewController: UIViewController {
         getPlayer()
        myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
     }
+    
     func configureInterface() {
         view.backgroundColor = .white
         view.addSubview(tableView)
@@ -81,7 +82,7 @@ class PlayersViewController: UIViewController {
         }.resume()
     }
     
-    @objc private func refresh(sender: UIRefreshControl) {
+    @objc func refresh(sender: UIRefreshControl) {
         getPlayer()
         sender.endRefreshing()
     }

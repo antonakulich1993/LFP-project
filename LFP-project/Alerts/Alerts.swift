@@ -44,7 +44,7 @@ enum Alert {
         case .addPartyError:
             return "Проверьте заполнение всех полей"
         case .postPartyError:
-            return "Проверьте формат даты и времени"
+            return "Проверьте правильность заполнения полей"
         }
     }
 }
