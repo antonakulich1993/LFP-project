@@ -83,18 +83,17 @@ class PartyInfoViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.navigationItem.rightBarButtonItem?.title = "Покинуть группу"
                     self.navigationItem.rightBarButtonItem?.tintColor = .red
+                    self.playersViewConrtoller?.getPlayer()
                 }
                 return print("Error: \(httpResponse.statusCode)")
             } else if httpResponse.statusCode == 204 {
                 DispatchQueue.main.async {
                     self.navigationItem.rightBarButtonItem?.title = "Вступить в группу"
                     self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+                    self.playersViewConrtoller?.getPlayer()
                 }
             }
         }.resume()
-        DispatchQueue.main.async {
-            self.playersViewConrtoller?.getPlayer()
-        }
     }
     
     func addChildPlayersViewController() {
@@ -120,7 +119,6 @@ class PartyInfoViewController: UIViewController {
         gameInfoViewController = viewController
         addChild(gameInfoViewController)
         childView.addSubview(gameInfoViewController.view)
-       
         print("add Game")
     }
     
