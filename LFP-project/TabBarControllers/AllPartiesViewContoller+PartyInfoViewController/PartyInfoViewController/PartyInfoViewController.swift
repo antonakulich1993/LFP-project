@@ -34,7 +34,7 @@ class PartyInfoViewController: UIViewController {
         return view
     }()
     
-    var playersViewConrtoller = UIViewController()
+    var playersViewConrtoller: PlayersViewController?
     var gameInfoViewController = UIViewController()
     
     override func viewDidLoad() {
@@ -79,25 +79,31 @@ class PartyInfoViewController: UIViewController {
         session.dataTask(with: request) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse else { return print("Error")
             }
-            guard httpResponse.statusCode == 201 else {
+            if httpResponse.statusCode == 201 || httpResponse.statusCode == 201 {
                 return print("Error: \(httpResponse.statusCode)")
             }
         }.resume()
+        DispatchQueue.main.async {
+            self.playersViewConrtoller?.getPlayer()
+        }
     }
     
     func addChildPlayersViewController() {
+        gameInfoViewController.didMove(toParent: self)
         gameInfoViewController.willMove(toParent: nil)
         gameInfoViewController.removeFromParent()
         gameInfoViewController.view.removeFromSuperview()
         let viewController = PlayersViewController(party: party)
         playersViewConrtoller = viewController
+        guard let playersViewConrtoller = playersViewConrtoller else { return }
         addChild(playersViewConrtoller)
         childView.addSubview(playersViewConrtoller.view)
-        playersViewConrtoller.didMove(toParent: self)
         print("add Player")
     }
     
     func addChildPartyViewController() {
+        guard let playersViewConrtoller = playersViewConrtoller else { return }
+        playersViewConrtoller.didMove(toParent: self)
         playersViewConrtoller.willMove(toParent: nil)
         playersViewConrtoller.removeFromParent()
         playersViewConrtoller.view.removeFromSuperview()
@@ -105,7 +111,7 @@ class PartyInfoViewController: UIViewController {
         gameInfoViewController = viewController
         addChild(gameInfoViewController)
         childView.addSubview(gameInfoViewController.view)
-        gameInfoViewController.didMove(toParent: self)
+       
         print("add Game")
     }
     
@@ -120,11 +126,6 @@ class PartyInfoViewController: UIViewController {
         default:
             break
         }
-    }
-    
-    deinit {
-        print(playersViewConrtoller)
-        print(gameInfoViewController)
     }
 }
 

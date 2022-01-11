@@ -84,7 +84,7 @@ class AddPartyViewController: UIViewController {
         let gameDurationField = LineTextField()
         gameDurationField.lineColorDefault = UIColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         gameDurationField.lineColorActive = UIColor.black
-        gameDurationField.placeholder = "Продолжительность игры"
+        gameDurationField.placeholder = "Продолжительность игры: Целое число"
         gameDurationField.floatingPlaceholder = true
         return gameDurationField
     }()
@@ -111,7 +111,7 @@ class AddPartyViewController: UIViewController {
         let priceField = LineTextField()
         priceField.lineColorDefault = UIColor(red: 0.73, green: 0.74, blue: 0.85, alpha: 1.0)
         priceField.lineColorActive = UIColor.black
-        priceField.placeholder = "Cтоимость игры"
+        priceField.placeholder = "Cтоимость игры: Целое число"
         priceField.floatingPlaceholder = true
         return priceField
     }()
@@ -137,7 +137,7 @@ class AddPartyViewController: UIViewController {
     }
     
     func createPartyAlert() {
-        let alert = Alert.postPartyError.sheet
+        let alert = Alert.postPartyError.controller
         alert.addAction(UIAlertAction(title: "ok", style: .default))
                         present(alert, animated: true, completion: nil)
     }
@@ -186,9 +186,7 @@ class AddPartyViewController: UIViewController {
                 return
             }
             guard httpResponse.statusCode == 201 else {
-                DispatchQueue.main.async {
                     self.createPartyAlert()
-                }
                 print("Error: \(httpResponse.statusCode)")
                 return
             }

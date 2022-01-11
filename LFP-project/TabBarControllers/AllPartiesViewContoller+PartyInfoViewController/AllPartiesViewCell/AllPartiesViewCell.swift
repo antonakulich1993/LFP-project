@@ -14,6 +14,7 @@ class AllPartiesViewCell: UITableViewCell {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var playersLabel: UILabel!
     @IBOutlet weak var nextPageImage: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
     
     static let identifier = "AllPartiesViewCell"
     
@@ -21,6 +22,7 @@ class AllPartiesViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .default
         backgroundColor = .white
+        editButton.isHidden = true
     }
 
     func setupCell(parties: AllPartiesModel) {
