@@ -12,8 +12,6 @@ class PlayersViewController: UIViewController {
     
     private let party: AllPartiesModel
     
-    var partyInfoController: PartyInfoViewController?
-    
     init(party: AllPartiesModel) {
         self.party = party
         
@@ -78,9 +76,6 @@ class PlayersViewController: UIViewController {
             }
             let result = try! JSONDecoder().decode(PlayersModel.self, from: data)
             self.players = result.usernames
-            if self.players.contains("\(username)") == true {
-              print("yes")
-            }
             self.joinedPlayers = result.joinedUsers
             DispatchQueue.main.async {
                 self.tableView.reloadData()
