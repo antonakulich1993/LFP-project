@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol ChangeButtonDelegate: AnyObject {
+    func ifUserIn()
+}
+
 class PartyInfoViewController: UIViewController {
     
     private let party: AllPartiesModel
@@ -21,7 +25,7 @@ class PartyInfoViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     let partySegmentControl: UISegmentedControl = {
         let partySegmentControl = UISegmentedControl(items: ["Игроки","О игре"])
         partySegmentControl.selectedSegmentIndex = 0
@@ -40,6 +44,7 @@ class PartyInfoViewController: UIViewController {
     
     var playersViewConrtoller: PlayersViewController?
     var gameInfoViewController = UIViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
