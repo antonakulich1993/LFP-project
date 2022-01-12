@@ -12,6 +12,8 @@ class PlayersViewController: UIViewController {
     
     private let party: AllPartiesModel
     
+    var partyInfoController: PartyInfoViewController?
+    
     init(party: AllPartiesModel) {
         self.party = party
         
@@ -58,6 +60,8 @@ class PlayersViewController: UIViewController {
     func getPlayer() {
         guard let url = URL(string: "https://lfp.monster/api/party/\(party.id)/") else { return }
         guard let token = DefaultsManager.token else { return }
+        guard let username = DefaultsManager.username else { return }
+
         var request = URLRequest(url: url)
         request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
         
@@ -72,9 +76,11 @@ class PlayersViewController: UIViewController {
             guard let data = data else {
                 return
             }
-            
             let result = try! JSONDecoder().decode(PlayersModel.self, from: data)
             self.players = result.usernames
+            if self.players.contains("\(username)") == true {
+              print("yes")
+            }
             self.joinedPlayers = result.joinedUsers
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -90,7 +96,7 @@ class PlayersViewController: UIViewController {
 
 extension PlayersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        return joinedPlayers
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

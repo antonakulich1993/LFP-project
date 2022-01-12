@@ -20,7 +20,7 @@ class AllPartiesViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        selectionStyle = .default
+        selectionStyle = .none
         backgroundColor = .white
         editButton.isHidden = true
     }
