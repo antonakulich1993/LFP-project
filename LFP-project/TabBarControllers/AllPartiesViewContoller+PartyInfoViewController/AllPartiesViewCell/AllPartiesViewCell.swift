@@ -29,7 +29,7 @@ class AllPartiesViewCell: UITableViewCell {
         locationLabel.text = "Адрес: \(parties.location), Игра: \(parties.game)"
         dateLabel.text = "Дата: \(parties.date)"
         startTimeLabel.text = "Начало в \(parties.time)"
-        playersLabel.text = "Количество игроков MAX: \(parties.maxPlayers)/ MIN: \(parties.minPlayers)"
+        playersLabel.text = "Количество игроков MAX: \(parties.maxPlayers)"
         nextPageImage.image = UIImage(named: "next")
     }
 }
