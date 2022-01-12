@@ -16,4 +16,12 @@ class DefaultsManager {
             UserDefaults.standard.set(newValue, forKey: "token")
         }
     }
+    class var username: String? {
+        get {
+            return UserDefaults.standard.value(forKey: "username") as? String
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "username")
+        }
+    }
 }

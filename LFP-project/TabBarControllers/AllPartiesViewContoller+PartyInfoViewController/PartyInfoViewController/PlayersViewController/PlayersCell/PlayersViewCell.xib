@@ -34,7 +34,7 @@
             <connections>
                 <outlet property="playerLabel" destination="udF-uV-pm0" id="uQg-FT-AsH"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="90.736607142857139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="90.401785714285708"/>
         </tableViewCell>
     </objects>
 </document>

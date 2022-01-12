@@ -34,12 +34,18 @@ class PartyInfoViewController: UIViewController {
         return view
     }()
     
+    var navItem: UIBarButtonItem = {
+        return UIBarButtonItem()
+    }()
+    
     var playersViewConrtoller: PlayersViewController?
     var gameInfoViewController = UIViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navItem = UIBarButtonItem(title: "Вступить в игру", style: .plain, target: self, action: #selector(joinParty))
+        navigationItem.rightBarButtonItem = navItem
         configureInterface()
         addChildPlayersViewController()
     }
@@ -59,11 +65,6 @@ class PartyInfoViewController: UIViewController {
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().inset(20)
         }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Вступить в группу",
-                                                           style: .plain,
-                                                           target: self,
-                                                           action: #selector(joinParty))
     }
     
     @objc func joinParty() {
@@ -81,15 +82,15 @@ class PartyInfoViewController: UIViewController {
             }
             if httpResponse.statusCode == 201  {
                 DispatchQueue.main.async {
-                    self.navigationItem.rightBarButtonItem?.title = "Покинуть группу"
-                    self.navigationItem.rightBarButtonItem?.tintColor = .red
+                    self.navItem.title = "Покинуть группу"
+                    self.navItem.tintColor = .red
                     self.playersViewConrtoller?.getPlayer()
                 }
                 return print("Error: \(httpResponse.statusCode)")
             } else if httpResponse.statusCode == 204 {
                 DispatchQueue.main.async {
-                    self.navigationItem.rightBarButtonItem?.title = "Вступить в группу"
-                    self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+                    self.navItem.title = "Вступить в группу"
+                    self.navItem.tintColor = .systemBlue
                     self.playersViewConrtoller?.getPlayer()
                 }
             }

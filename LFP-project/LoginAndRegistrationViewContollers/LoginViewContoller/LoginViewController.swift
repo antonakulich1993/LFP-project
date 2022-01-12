@@ -128,6 +128,7 @@ class LoginViewController: UIViewController {
     @objc func loginAction() {
         guard let username = usernameField.text else { return }
         guard let password = passwordField.text else { return }
+       
         
         let parameters = [
             "username": "\(username)",
@@ -154,6 +155,7 @@ class LoginViewController: UIViewController {
             
             guard let token = token?.token else { return }
             DefaultsManager.token = token
+            DefaultsManager.username = username
             
             DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
