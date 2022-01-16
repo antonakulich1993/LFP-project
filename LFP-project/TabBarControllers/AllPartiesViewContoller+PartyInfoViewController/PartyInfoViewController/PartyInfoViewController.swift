@@ -8,14 +8,10 @@
 import UIKit
 import SnapKit
 
-protocol ChangeButtonDelegate: AnyObject {
-    func ifUserIn()
-}
-
 class PartyInfoViewController: UIViewController {
     
     private let party: AllPartiesModel
-    
+
     init(party: AllPartiesModel) {
         self.party = party
         
@@ -25,7 +21,7 @@ class PartyInfoViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     let partySegmentControl: UISegmentedControl = {
         let partySegmentControl = UISegmentedControl(items: ["Игроки","О игре"])
         partySegmentControl.selectedSegmentIndex = 0
@@ -110,6 +106,7 @@ class PartyInfoViewController: UIViewController {
         let viewController = PlayersViewController(party: party)
         playersViewConrtoller = viewController
         guard let playersViewConrtoller = playersViewConrtoller else { return }
+        playersViewConrtoller.delegate = self
         addChild(playersViewConrtoller)
         childView.addSubview(playersViewConrtoller.view)
         print("add Player")
@@ -142,3 +139,9 @@ class PartyInfoViewController: UIViewController {
     }
 }
 
+extension PartyInfoViewController: ChangeButtonDelegate {
+    func changeButtonTitle() {
+        navItem.title = "Покинуть группу"
+        navItem.tintColor = .red
+    }
+}

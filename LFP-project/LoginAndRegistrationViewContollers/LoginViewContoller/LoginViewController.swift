@@ -62,6 +62,12 @@ class LoginViewController: UIViewController {
         return registrationButton
     }()
     
+    func loginAlert() {
+        let alert = Alert.loginError.controller
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureIntreface()
@@ -82,10 +88,8 @@ class LoginViewController: UIViewController {
         
         view.addSubview(enterLabel)
         enterLabel.snp.makeConstraints { make in
-            make.height.equalTo(33)
-            make.width.equalTo(63)
             make.top.equalTo(logoImage.snp.bottom).offset(44)
-            make.leading.equalToSuperview().inset(164)
+            make.centerX.equalTo(logoImage.snp.centerX)
         }
         
         view.addSubview(usernameField)
@@ -148,6 +152,9 @@ class LoginViewController: UIViewController {
             guard let httpResponse = response as? HTTPURLResponse else { return }
             
             guard httpResponse.statusCode == 200 else {
+                DispatchQueue.main.async {
+                    self.loginAlert()
+                }
                 return print("Error: \(httpResponse.statusCode)")
             }
             
@@ -156,7 +163,6 @@ class LoginViewController: UIViewController {
             guard let token = token?.token else { return }
             DefaultsManager.token = token
             DefaultsManager.username = username
-            
             DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 let appDelegateWindow = appDelegate?.window
@@ -168,6 +174,7 @@ class LoginViewController: UIViewController {
     
     @objc func registrationAction() {
         let registrationViewController = RegistrationViewController()
+        registrationViewController.delegate = self
         navigationController?.pushViewController(registrationViewController, animated: true)
     }
 }
@@ -180,5 +187,13 @@ extension LoginViewController {
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension LoginViewController: ChangeRegistrationLabel {
+    func didRegistration() {
+        enterLabel.text = "Вы уcпешно зарегистрировались!"
+        enterLabel.textColor = .systemGreen
+        enterLabel.font = enterLabel.font.withSize(20)
     }
 }

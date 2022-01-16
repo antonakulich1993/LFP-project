@@ -8,9 +8,15 @@
 import UIKit
 import SnapKit
 
+protocol ChangeButtonDelegate: AnyObject {
+    func changeButtonTitle()
+}
+
 class PlayersViewController: UIViewController {
     
     private let party: AllPartiesModel
+    
+    weak var delegate: ChangeButtonDelegate?
     
     init(party: AllPartiesModel) {
         self.party = party
@@ -28,7 +34,6 @@ class PlayersViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
-        tableView.refreshControl = myRefreshControl
         tableView.register(UINib(nibName: String(describing: PlayersViewCell.self), bundle: nil), forCellReuseIdentifier: PlayersViewCell.identifier)
         return tableView
     }()
@@ -38,12 +43,12 @@ class PlayersViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Обновление игроков")
         return refreshControl
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
         getPlayer()
-       myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
     }
     
     func configureInterface() {
@@ -59,7 +64,7 @@ class PlayersViewController: UIViewController {
         guard let url = URL(string: "https://lfp.monster/api/party/\(party.id)/") else { return }
         guard let token = DefaultsManager.token else { return }
         guard let username = DefaultsManager.username else { return }
-
+        
         var request = URLRequest(url: url)
         request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
         
@@ -70,7 +75,6 @@ class PlayersViewController: UIViewController {
             guard httpResponse.statusCode == 200 else { return
                 print("Error: \(httpResponse.statusCode)")
             }
-            
             guard let data = data else {
                 return
             }
@@ -78,6 +82,9 @@ class PlayersViewController: UIViewController {
             self.players = result.usernames
             self.joinedPlayers = result.joinedUsers
             DispatchQueue.main.async {
+                if self.players.contains(username) {
+                    self.delegate?.changeButtonTitle()
+                }
                 self.tableView.reloadData()
             }
         }.resume()
@@ -95,7 +102,7 @@ extension PlayersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: PlayersViewCell.identifier, for: indexPath) as? PlayersViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PlayersViewCell.identifier, for: indexPath) as? PlayersViewCell else { return UITableViewCell()}
         cell.playerLabel.text = players[indexPath.row]
         return cell
     }
