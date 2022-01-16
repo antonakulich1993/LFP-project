@@ -144,6 +144,7 @@ class AddPartyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Создать игру"
         configureInterface()
         addPartyButton.addTarget(self, action: #selector(addParty), for: .touchUpInside)
     }
@@ -186,13 +187,19 @@ class AddPartyViewController: UIViewController {
                 return
             }
             guard httpResponse.statusCode == 201 else {
+                DispatchQueue.main.async {
                     self.createPartyAlert()
+                }
                 print("Error: \(httpResponse.statusCode)")
                 return
             }
             let result = try? JSONSerialization.jsonObject(with: data, options: [])
             guard let result = result else { return }
             print(result)
+            DispatchQueue.main.async {
+                self.tabBarController?.selectedIndex = 0
+                
+            }
         }.resume()
     }
     
@@ -293,3 +300,13 @@ class AddPartyViewController: UIViewController {
     }
 }
 
+extension AddPartyViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddPartyViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

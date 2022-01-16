@@ -11,10 +11,7 @@ import SnapKit
 class PartyInfoViewController: UIViewController {
     
     private let party: AllPartiesModel
-    
-    
-    
-    
+
     init(party: AllPartiesModel) {
         self.party = party
         

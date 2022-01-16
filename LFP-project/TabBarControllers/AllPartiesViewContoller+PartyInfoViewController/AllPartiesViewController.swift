@@ -31,6 +31,7 @@ class AllPartiesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Все игры"
         configureInterface()
         getParties()
         myRefreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -45,7 +46,6 @@ class AllPartiesViewController: UIViewController {
     }
     
     func getParties() {
-        
         guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
         guard let token = DefaultsManager.token else { return }
         var request = URLRequest(url: url)
