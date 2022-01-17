@@ -41,12 +41,28 @@ class ProfileInfoViewController: UIViewController {
         return label
     }()
     
+    let logOutButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Выйти", for: .normal)
+        button.tintColor = .red
+        return button
+    }()
+    
+    var navItem: UIBarButtonItem = {
+        return UIBarButtonItem()
+    }()
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
         view.backgroundColor = .white
         usernameLabel.text = DefaultsManager.username
+        navItem = UIBarButtonItem(title: "Выйти", style: .plain, target: self, action: #selector(logOutAction))
+        navigationItem.rightBarButtonItem = navItem
+        navItem.tintColor = .red
         configureInterface()
     }
     
@@ -72,9 +88,6 @@ class ProfileInfoViewController: UIViewController {
             make.top.equalTo(usernameLabel.snp.bottom).offset(10)
         }
         
-        
-      
-        
         view.addSubview(allMyPartiesLabel)
         allMyPartiesLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
@@ -87,6 +100,15 @@ class ProfileInfoViewController: UIViewController {
             make.top.equalTo(allMyPartiesLabel.snp.bottom).offset(10)
             make.bottom.equalToSuperview().offset(0)
         }
+    }
+    
+    @objc func logOutAction() {
+        UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "username")
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let appDelegateWindow = appDelegate?.window
+        appDelegateWindow?.rootViewController?.dismiss(animated: false)
+        appDelegateWindow?.rootViewController = LoginViewController()
     }
 }
 

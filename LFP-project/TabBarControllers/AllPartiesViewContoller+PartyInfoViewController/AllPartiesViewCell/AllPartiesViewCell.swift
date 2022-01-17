@@ -18,18 +18,30 @@ class AllPartiesViewCell: UITableViewCell {
     
     static let identifier = "AllPartiesViewCell"
     
+    override func layoutSubviews() {
+           super.layoutSubviews()
+           let margins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+           contentView.frame = contentView.frame.inset(by: margins)
+       }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        selectionStyle = .none
-        backgroundColor = .white
+        contentView.backgroundColor = UIColor(red: 0.97, green: 0.98, blue: 1.0, alpha: 1.0)
+        contentView.layer.cornerRadius = 15
+        selectionStyle = .default
+        contentView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        contentView.layer.shadowOffset = CGSize(width: 5.0, height: 10.0)
+        contentView.layer.shadowOpacity = 0.3
+        contentView.layer.shadowRadius = 5
+        contentView.layer.masksToBounds = false
         editButton.isHidden = true
     }
 
     func setupCell(parties: AllPartiesModel) {
         locationLabel.text = "Адрес: \(parties.location), Игра: \(parties.game)"
-        dateLabel.text = "Дата: \(parties.date)"
-        startTimeLabel.text = "Начало в \(parties.time)"
-        playersLabel.text = "Количество игроков MAX: \(parties.maxPlayers)"
+        dateLabel.text = "\(parties.date)"
+        startTimeLabel.text = "\(parties.time)"
+        playersLabel.text = "MAX: \(parties.maxPlayers)"
         nextPageImage.image = UIImage(named: "next")
     }
 }
