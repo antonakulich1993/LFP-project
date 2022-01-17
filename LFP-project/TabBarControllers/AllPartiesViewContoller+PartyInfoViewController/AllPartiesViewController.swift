@@ -17,6 +17,7 @@ class AllPartiesViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         tableView.refreshControl = myRefreshControl
         tableView.register(UINib(nibName: String(describing: AllPartiesViewCell.self), bundle: nil), forCellReuseIdentifier: AllPartiesViewCell.identifier)
         tableView.estimatedRowHeight = 130
@@ -91,6 +92,9 @@ extension AllPartiesViewController: UITableViewDelegate {
         let party = parties[indexPath.row]
         let partyInfo = PartyInfoViewController(party: party)
         navigationController?.pushViewController(partyInfo, animated: true)
-        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 }
