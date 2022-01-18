@@ -26,7 +26,6 @@ class AddPartyViewController: UIViewController {
     
     let addPartyLabel: UILabel = {
         let addPartyLabel = UILabel()
-        addPartyLabel.text = "Создать игру"
         addPartyLabel.numberOfLines = 0
         addPartyLabel.lineBreakMode = .byWordWrapping
         addPartyLabel.numberOfLines = 0
