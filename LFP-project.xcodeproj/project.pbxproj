@@ -25,8 +25,6 @@
 		FAD70B4D2774A3EF002FCD61 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B4C2774A3EF002FCD61 /* PlayersViewController.swift */; };
 		FAD70B512774A643002FCD61 /* PlayersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B4F2774A643002FCD61 /* PlayersViewCell.swift */; };
 		FAD70B522774A643002FCD61 /* PlayersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B502774A643002FCD61 /* PlayersViewCell.xib */; };
-		FAD70B7C2779F287002FCD61 /* GameInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */; };
-		FAD70B7D2779F287002FCD61 /* GameInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */; };
 		FAD70BA5277B24A1002FCD61 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70BA4277B24A1002FCD61 /* Players.swift */; };
 		FAD70BA7277B3A41002FCD61 /* AddPartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70BA6277B3A41002FCD61 /* AddPartyModel.swift */; };
 		FAD70C5127872643002FCD61 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD70C5027872642002FCD61 /* Alerts.swift */; };
@@ -57,8 +55,6 @@
 		FAD70B4C2774A3EF002FCD61 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		FAD70B4F2774A643002FCD61 /* PlayersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewCell.swift; sourceTree = "<group>"; };
 		FAD70B502774A643002FCD61 /* PlayersViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayersViewCell.xib; sourceTree = "<group>"; };
-		FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoTableViewCell.swift; sourceTree = "<group>"; };
-		FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoTableViewCell.xib; sourceTree = "<group>"; };
 		FAD70BA4277B24A1002FCD61 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		FAD70BA6277B3A41002FCD61 /* AddPartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyModel.swift; sourceTree = "<group>"; };
 		FAD70C5027872642002FCD61 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -221,8 +217,6 @@
 		FAD70B792779F267002FCD61 /* GameInfoCell */ = {
 			isa = PBXGroup;
 			children = (
-				FAD70B7A2779F287002FCD61 /* GameInfoTableViewCell.swift */,
-				FAD70B7B2779F287002FCD61 /* GameInfoTableViewCell.xib */,
 			);
 			path = GameInfoCell;
 			sourceTree = "<group>";
@@ -349,7 +343,6 @@
 			files = (
 				FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */,
 				FAD70B44277200E3002FCD61 /* AllPartiesViewCell.xib in Resources */,
-				FAD70B7D2779F287002FCD61 /* GameInfoTableViewCell.xib in Resources */,
 				FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */,
 				FAD70B522774A643002FCD61 /* PlayersViewCell.xib in Resources */,
 			);
@@ -407,7 +400,6 @@
 				FA3D35292769F53F009DFCBF /* DarkBlueButton.swift in Sources */,
 				FADACD0A27677CAE00DC77F1 /* LoginViewController.swift in Sources */,
 				FAD70B14277090DA002FCD61 /* Token.swift in Sources */,
-				FAD70B7C2779F287002FCD61 /* GameInfoTableViewCell.swift in Sources */,
 				FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */,
 				FAD70B1027705AC6002FCD61 /* AddPartyViewController.swift in Sources */,
 				FAD70B4D2774A3EF002FCD61 /* PlayersViewController.swift in Sources */,

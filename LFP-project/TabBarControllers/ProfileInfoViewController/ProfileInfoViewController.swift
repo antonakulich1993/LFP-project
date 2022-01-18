@@ -105,6 +105,7 @@ class ProfileInfoViewController: UIViewController {
     @objc func logOutAction() {
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.removeObject(forKey: "id")
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let appDelegateWindow = appDelegate?.window
         appDelegateWindow?.rootViewController?.dismiss(animated: false)
