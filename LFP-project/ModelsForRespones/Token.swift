@@ -10,7 +10,9 @@ import Foundation
 struct Token: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case token 
+        case token
+        case id = "user_id"
     }
     let token: String
+    let id: Int
 }

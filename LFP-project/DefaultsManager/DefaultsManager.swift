@@ -24,4 +24,12 @@ class DefaultsManager {
             UserDefaults.standard.set(newValue, forKey: "username")
         }
     }
+    class var id: Int? {
+        get {
+            return UserDefaults.standard.value(forKey: "id") as? Int
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "id")
+        }
+    }
 }
