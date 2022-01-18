@@ -34,7 +34,6 @@ class AllPartiesViewCell: UITableViewCell {
         contentView.layer.shadowOpacity = 0.3
         contentView.layer.shadowRadius = 5
         contentView.layer.masksToBounds = false
-        editButton.isHidden = true
     }
 
     func setupCell(parties: AllPartiesModel) {
@@ -43,5 +42,11 @@ class AllPartiesViewCell: UITableViewCell {
         startTimeLabel.text = "\(parties.time)"
         playersLabel.text = "MAX: \(parties.maxPlayers)"
         nextPageImage.image = UIImage(named: "next")
+        guard let id = DefaultsManager.id else { return }
+        if id == parties.partymaker {
+            editButton.isHidden = false
+        } else {
+            editButton.isHidden = true
+        }
     }
 }
