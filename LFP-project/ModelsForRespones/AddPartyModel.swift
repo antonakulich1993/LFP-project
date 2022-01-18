@@ -8,6 +8,7 @@
 import Foundation
 
 struct AddPartyModel: Codable {
+    
    let game: String
    let location: String
    let date: String
@@ -17,4 +18,17 @@ struct AddPartyModel: Codable {
    let currenсy: String
    let maxPlayers: String
    let minPlayers: String
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case game
+        case location
+        case date
+        case time
+        case duration
+        case price
+        case currenсy
+        case maxPlayers = "max_players"
+        case minPlayers = "min_players"
+    }
 }

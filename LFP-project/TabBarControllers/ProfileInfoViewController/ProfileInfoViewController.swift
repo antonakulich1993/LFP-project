@@ -52,9 +52,6 @@ class ProfileInfoViewController: UIViewController {
         return UIBarButtonItem()
     }()
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
