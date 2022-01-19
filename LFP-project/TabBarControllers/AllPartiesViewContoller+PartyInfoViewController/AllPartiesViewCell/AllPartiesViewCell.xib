@@ -96,7 +96,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="crown.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pea-Qd-slH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" image="crown.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pea-Qd-slH">
                                 <rect key="frame" x="168" y="0.0" width="150" height="23.5"/>
                                 <color key="tintColor" red="0.89313798099999997" green="0.59069695550000001" blue="0.0071575577179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>

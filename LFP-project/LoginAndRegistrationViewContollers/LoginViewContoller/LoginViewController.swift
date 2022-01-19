@@ -108,9 +108,9 @@ class LoginViewController: UIViewController {
         
         view.addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
-            make.height.equalTo(54)
             make.top.equalTo(passwordField.snp.bottom).offset(28)
             make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(54)
             
         }
         
@@ -122,17 +122,15 @@ class LoginViewController: UIViewController {
         
         view.addSubview(registrationButton)
         registrationButton.snp.makeConstraints { make in
-            make.height.equalTo(54)
             make.top.equalTo(questionLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(54)
         }
     }
-    
     
     @objc func loginAction() {
         guard let username = usernameField.text else { return }
         guard let password = passwordField.text else { return }
-       
         
         let parameters = [
             "username": "\(username)",

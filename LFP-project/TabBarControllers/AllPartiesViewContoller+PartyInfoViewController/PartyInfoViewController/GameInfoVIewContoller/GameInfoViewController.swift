@@ -32,6 +32,7 @@ class GameInfoViewController: UIViewController {
         let scrollViewContainer = UIStackView()
         scrollViewContainer.spacing = 20
         scrollViewContainer.axis = .vertical
+        scrollViewContainer.distribution = UIStackView.Distribution.equalSpacing
         scrollViewContainer.distribution = .fillProportionally
         scrollViewContainer.backgroundColor = .white
         return scrollViewContainer
@@ -162,9 +163,9 @@ class GameInfoViewController: UIViewController {
         
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.width.equalTo(view)
+            make.top.bottom.equalTo(scrollView)
+            make.leading.trailing.equalTo(scrollView).inset(16)
+            make.width.equalTo(scrollView)
         }
         scrollViewContainer.addArrangedSubview(idLabel)
         scrollViewContainer.addArrangedSubview(createdAtLabel)
