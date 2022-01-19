@@ -14,6 +14,7 @@ class AllPartiesViewCell: UITableViewCell {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var playersLabel: UILabel!
     @IBOutlet weak var nextPageImage: UIImageView!
+    @IBOutlet weak var partyMakerImage: UIImageView!
     
     static let identifier = "AllPartiesViewCell"
     
@@ -41,5 +42,10 @@ class AllPartiesViewCell: UITableViewCell {
         startTimeLabel.text = "\(parties.time)"
         playersLabel.text = "MAX: \(parties.maxPlayers)"
         nextPageImage.image = UIImage(named: "next")
+        if DefaultsManager.id == parties.partymaker {
+            partyMakerImage.isHidden = false
+        } else {
+            partyMakerImage.isHidden = true
+        }
     }
 }
