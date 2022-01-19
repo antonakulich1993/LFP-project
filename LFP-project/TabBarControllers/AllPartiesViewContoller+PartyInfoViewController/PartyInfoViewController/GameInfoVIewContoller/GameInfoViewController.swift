@@ -143,6 +143,12 @@ class GameInfoViewController: UIViewController {
         return label
     }()
     
+    let changeButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Изменить", for: .normal)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
@@ -151,15 +157,14 @@ class GameInfoViewController: UIViewController {
     func configureInterface() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.trailing.bottom.equalToSuperview().inset(16)
+            make.leading.trailing.top.bottom.equalToSuperview()
         }
         
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(scrollView)
-            make.width.equalTo(scrollView)
-            make.bottom.equalTo(scrollView)
+            make.top.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.width.equalTo(view)
         }
         scrollViewContainer.addArrangedSubview(idLabel)
         scrollViewContainer.addArrangedSubview(createdAtLabel)
@@ -174,6 +179,7 @@ class GameInfoViewController: UIViewController {
         scrollViewContainer.addArrangedSubview(currencyLabel)
         scrollViewContainer.addArrangedSubview(minPlayersLabel)
         scrollViewContainer.addArrangedSubview(maxPlayersLabel)
+        scrollViewContainer.addArrangedSubview(changeButton)
         
         idLabel.text = "ID игры: \(party.id)"
         createdAtLabel.text = "Игра создана в \(party.createdAt)"

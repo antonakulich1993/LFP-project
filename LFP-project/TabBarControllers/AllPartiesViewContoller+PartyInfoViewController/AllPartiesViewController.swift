@@ -100,7 +100,7 @@ extension AllPartiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         if DefaultsManager.id == self.parties[indexPath.row].partymaker {
             let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-                let delete = UIAction(title: "Delete",
+                let delete = UIAction(title: "Удалить",
                                       image: UIImage(systemName: "trash"),
                                       identifier: nil,
                                       discoverabilityTitle: nil,
@@ -130,21 +130,17 @@ extension AllPartiesViewController: UITableViewDelegate {
                         }
                     }.resume()
                 }
-                let edit = UIAction(title: "edit", image: UIImage(systemName: "pencil.and.ellipsis.rectangle"), identifier: nil,
-                                    discoverabilityTitle: nil, state: .off) { _ in
-                    print("Tapped")
-                }
-                let close = UIAction(title: "close",
+                let close = UIAction(title: "закрыть",
                                      image: UIImage(systemName: "xmark.circle"),
                                      identifier: nil, discoverabilityTitle: nil,
                                      state: .off) { _ in
                     print("Tapped")
                 }
-                return UIMenu(title: "",
+                return UIMenu(title: "Лидер группы",
                               image: nil,
                               identifier: nil,
                               options: UIMenu.Options.displayInline,
-                              children: [ delete, edit, close ])
+                              children: [ delete, close ])
             }
             return configuration
         } else {
