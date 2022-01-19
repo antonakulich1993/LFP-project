@@ -20,7 +20,6 @@ class AllPartiesViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.refreshControl = myRefreshControl
         tableView.register(UINib(nibName: String(describing: AllPartiesViewCell.self), bundle: nil), forCellReuseIdentifier: AllPartiesViewCell.identifier)
-        tableView.estimatedRowHeight = 130
         return tableView
     }()
     
@@ -97,4 +96,65 @@ extension AllPartiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            
+            let delete = UIAction(title: "Delete",
+                                image: UIImage(systemName: "trash"),
+                                identifier: nil,
+                                discoverabilityTitle: nil,
+                                attributes: .destructive,
+                                state: .off) { _ in
+                if DefaultsManager.id == self.parties[indexPath.row].partymaker {
+                    let id = self.parties[indexPath.row].id
+                    guard let url = URL(string: "https://lfp.monster/api/party/\(id)/") else { return }
+                    guard let token = DefaultsManager.token else { return }
+                    var request = URLRequest(url: url)
+                    request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+                    request.httpMethod = "DELETE"
+                    let session = URLSession.shared
+                    session.dataTask(with: request) { data, response, error in
+                        guard  error == nil else {
+                            print(error!)
+                            return
+                        }
+                        guard let httpResponse = response as? HTTPURLResponse else { return print("Error")
+                        }
+                        if httpResponse.statusCode == 204 {
+                            DispatchQueue.main.async {
+                                self.parties.remove(at: indexPath.row)
+                                tableView.deleteRows(at: [indexPath], with: .automatic)
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }.resume()
+                }
+            }
+            let edit = UIAction(title: "edit",
+                                image: UIImage(systemName: "pencil.and.ellipsis.rectangle"),
+                                identifier: nil,
+                                discoverabilityTitle: nil,
+                                state: .off) { _ in
+                print("Tapped")
+            }
+            let close = UIAction(title: "close",
+                                image: UIImage(systemName: "xmark.circle"),
+                                identifier: nil,
+                                discoverabilityTitle: nil,
+                                state: .off) { _ in
+                print("Tapped")
+            }
+            
+            return UIMenu(title: "",
+                          image: nil,
+                          identifier: nil,
+                          options: UIMenu.Options.displayInline,
+                          children: [ delete, edit, close ])
+        }
+        return configuration
+    }
 }
+
+

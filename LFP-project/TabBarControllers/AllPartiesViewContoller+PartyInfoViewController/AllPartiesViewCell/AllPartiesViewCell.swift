@@ -14,7 +14,6 @@ class AllPartiesViewCell: UITableViewCell {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var playersLabel: UILabel!
     @IBOutlet weak var nextPageImage: UIImageView!
-    @IBOutlet weak var editButton: UIButton!
     
     static let identifier = "AllPartiesViewCell"
     
@@ -42,11 +41,5 @@ class AllPartiesViewCell: UITableViewCell {
         startTimeLabel.text = "\(parties.time)"
         playersLabel.text = "MAX: \(parties.maxPlayers)"
         nextPageImage.image = UIImage(named: "next")
-        guard let id = DefaultsManager.id else { return }
-        if id == parties.partymaker {
-            editButton.isHidden = false
-        } else {
-            editButton.isHidden = true
-        }
     }
 }
