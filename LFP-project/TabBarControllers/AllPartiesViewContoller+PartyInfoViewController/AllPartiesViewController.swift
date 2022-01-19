@@ -97,17 +97,16 @@ extension AllPartiesViewController: UITableViewDelegate {
         return 150
     }
     
-    
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-            
-            let delete = UIAction(title: "Delete",
-                                image: UIImage(systemName: "trash"),
-                                identifier: nil,
-                                discoverabilityTitle: nil,
-                                attributes: .destructive,
-                                state: .off) { _ in
-                if DefaultsManager.id == self.parties[indexPath.row].partymaker {
+        if DefaultsManager.id == self.parties[indexPath.row].partymaker {
+            let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+                let delete = UIAction(title: "Delete",
+                                      image: UIImage(systemName: "trash"),
+                                      identifier: nil,
+                                      discoverabilityTitle: nil,
+                                      attributes: .destructive,
+                                      state: .off) { _ in
+                    
                     let id = self.parties[indexPath.row].id
                     guard let url = URL(string: "https://lfp.monster/api/party/\(id)/") else { return }
                     guard let token = DefaultsManager.token else { return }
@@ -125,35 +124,32 @@ extension AllPartiesViewController: UITableViewDelegate {
                         if httpResponse.statusCode == 204 {
                             DispatchQueue.main.async {
                                 self.parties.remove(at: indexPath.row)
-                                tableView.deleteRows(at: [indexPath], with: .automatic)
+                                tableView.deleteRows(at: [indexPath], with: .left)
                                 self.tableView.reloadData()
                             }
                         }
                     }.resume()
                 }
+                let edit = UIAction(title: "edit", image: UIImage(systemName: "pencil.and.ellipsis.rectangle"), identifier: nil,
+                                    discoverabilityTitle: nil, state: .off) { _ in
+                    print("Tapped")
+                }
+                let close = UIAction(title: "close",
+                                     image: UIImage(systemName: "xmark.circle"),
+                                     identifier: nil, discoverabilityTitle: nil,
+                                     state: .off) { _ in
+                    print("Tapped")
+                }
+                return UIMenu(title: "",
+                              image: nil,
+                              identifier: nil,
+                              options: UIMenu.Options.displayInline,
+                              children: [ delete, edit, close ])
             }
-            let edit = UIAction(title: "edit",
-                                image: UIImage(systemName: "pencil.and.ellipsis.rectangle"),
-                                identifier: nil,
-                                discoverabilityTitle: nil,
-                                state: .off) { _ in
-                print("Tapped")
-            }
-            let close = UIAction(title: "close",
-                                image: UIImage(systemName: "xmark.circle"),
-                                identifier: nil,
-                                discoverabilityTitle: nil,
-                                state: .off) { _ in
-                print("Tapped")
-            }
-            
-            return UIMenu(title: "",
-                          image: nil,
-                          identifier: nil,
-                          options: UIMenu.Options.displayInline,
-                          children: [ delete, edit, close ])
+            return configuration
+        } else {
+            return nil
         }
-        return configuration
     }
 }
 
