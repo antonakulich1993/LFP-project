@@ -184,7 +184,7 @@ class GameInfoViewController: UIViewController {
         dateLabel.text = "Дата: \(party.date)"
         timeLabel.text = "Время начала: \(party.time)"
         durationLabel.text = "Время продолжительности игры: \(party.duration)"
-        priceLabel.text = "Стоимосоть: \(party.price)"
+        priceLabel.text = "Стоимость: \(party.price)"
         currencyLabel.text = "Валюта: \(party.currency)"
         minPlayersLabel.text = "Минимальноe количество игроков: \(party.minPlayers)"
         maxPlayersLabel.text = "Максимальное количество игроков: \(party.maxPlayers)"
