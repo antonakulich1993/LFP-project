@@ -28,15 +28,12 @@ class GameInfoViewController: UIViewController {
         return scrollView
     }()
     
-    let scrollViewContainer: UIStackView = {
-        let scrollViewContainer = UIStackView()
-        scrollViewContainer.spacing = 20
-        scrollViewContainer.axis = .vertical
-        scrollViewContainer.distribution = UIStackView.Distribution.equalSpacing
-        scrollViewContainer.distribution = .fillProportionally
+    let scrollViewContainer: UIView = {
+        let scrollViewContainer = UIView()
         scrollViewContainer.backgroundColor = .white
         return scrollViewContainer
     }()
+    
     let idLabel: UILabel = {
         let label = UILabel()
         label.text = "ID"
@@ -144,18 +141,24 @@ class GameInfoViewController: UIViewController {
         return label
     }()
     
-    let changeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Изменить", for: .normal)
+    let changeButton: DarkBlueButton = {
+        let button = DarkBlueButton(title: "Изменить")
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
+//        if DefaultsManager.id != party.partymaker {
+            changeButton.isHidden = true
+//        } else {
+//            changeButton.isHidden = false
+//        }
+//        changeButton.addTarget(self, action: #selector(changePartyInfo), for: .touchUpInside)
     }
     
     func configureInterface() {
+        
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
@@ -163,24 +166,84 @@ class GameInfoViewController: UIViewController {
         
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.snp.makeConstraints { make in
-            make.top.bottom.equalTo(scrollView)
-            make.leading.trailing.equalTo(scrollView).inset(16)
-            make.width.equalTo(scrollView)
+            make.top.leading.trailing.bottom.equalToSuperview()
+            make.width.equalTo(view)
         }
-        scrollViewContainer.addArrangedSubview(idLabel)
-        scrollViewContainer.addArrangedSubview(createdAtLabel)
-        scrollViewContainer.addArrangedSubview(updatedAtLabel)
-        scrollViewContainer.addArrangedSubview(partyMakerLabel)
-        scrollViewContainer.addArrangedSubview(locationLabel)
-        scrollViewContainer.addArrangedSubview(gameLabel)
-        scrollViewContainer.addArrangedSubview(dateLabel)
-        scrollViewContainer.addArrangedSubview(timeLabel)
-        scrollViewContainer.addArrangedSubview(durationLabel)
-        scrollViewContainer.addArrangedSubview(priceLabel)
-        scrollViewContainer.addArrangedSubview(currencyLabel)
-        scrollViewContainer.addArrangedSubview(minPlayersLabel)
-        scrollViewContainer.addArrangedSubview(maxPlayersLabel)
-        scrollViewContainer.addArrangedSubview(changeButton)
+        
+        scrollViewContainer.addSubview(idLabel)
+        idLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        
+        scrollViewContainer.addSubview(createdAtLabel)
+        createdAtLabel.snp.makeConstraints { make in
+            make.top.equalTo(idLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        
+        scrollViewContainer.addSubview(updatedAtLabel)
+        updatedAtLabel.snp.makeConstraints { make in
+            make.top.equalTo(createdAtLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(partyMakerLabel)
+        partyMakerLabel.snp.makeConstraints { make in
+            make.top.equalTo(updatedAtLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(locationLabel)
+        locationLabel.snp.makeConstraints { make in
+            make.top.equalTo(partyMakerLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(gameLabel)
+        gameLabel.snp.makeConstraints { make in
+            make.top.equalTo(locationLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(dateLabel)
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(gameLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(timeLabel)
+        timeLabel.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(durationLabel)
+        durationLabel.snp.makeConstraints { make in
+            make.top.equalTo(timeLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(priceLabel)
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(durationLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(currencyLabel)
+        currencyLabel.snp.makeConstraints { make in
+            make.top.equalTo(priceLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(minPlayersLabel)
+        minPlayersLabel.snp.makeConstraints { make in
+            make.top.equalTo(currencyLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(maxPlayersLabel)
+        maxPlayersLabel.snp.makeConstraints { make in
+            make.top.equalTo(minPlayersLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+        }
+        scrollViewContainer.addSubview(changeButton)
+        changeButton.snp.makeConstraints { make in
+            make.top.equalTo(maxPlayersLabel.snp.bottom).offset(10)
+            make.trailing.leading.equalToSuperview().inset(16)
+            make.height.equalTo(54)
+            make.bottom.equalToSuperview().offset(-16)
+        }
         
         idLabel.text = "ID игры: \(party.id)"
         createdAtLabel.text = "Игра создана в \(party.createdAt)"
@@ -196,4 +259,31 @@ class GameInfoViewController: UIViewController {
         minPlayersLabel.text = "Минимальноe количество игроков: \(party.minPlayers)"
         maxPlayersLabel.text = "Максимальное количество игроков: \(party.maxPlayers)"
     }
+    
+//    @objc func changePartyInfo() {
+//        let id = party.id
+//
+//        guard let httpBody = try? JSONEncoder().encode(partyModel) else { return }
+//
+//        guard let url = URL(string: "https://lfp.monster/api/party/\(id)/") else { return }
+//        guard let token = DefaultsManager.token else { return }
+//        var request = URLRequest(url: url)
+//        request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+//        request.httpMethod = "PUT"
+//        request.httpBody = httpBody
+//
+//        let session = URLSession.shared
+//        session.dataTask(with: request) { data, response, error in
+//            guard  error == nil else {
+//                print(error!)
+//                return
+//            }
+//            guard let httpResponse = response as? HTTPURLResponse else { return print("Error")
+//            }
+//            if httpResponse.statusCode == 200 {
+//                DispatchQueue.main.async {
+//                }
+//            }
+//        }.resume()
+//    }
 }

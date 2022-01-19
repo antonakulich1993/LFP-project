@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		319E6E03608965C0B55EA5DF /* Pods_LFP_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B5FB8A2F349E305E889699 /* Pods_LFP_project.framework */; };
+		FA02891027982C0100F6489F /* ProfileInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02890E27982C0100F6489F /* ProfileInfoViewCell.swift */; };
+		FA02891127982C0100F6489F /* ProfileInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA02890F27982C0100F6489F /* ProfileInfoViewCell.xib */; };
 		FA1883A02768D60B00ECF554 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */; };
 		FA3D35292769F53F009DFCBF /* DarkBlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D35282769F53F009DFCBF /* DarkBlueButton.swift */; };
 		FA3D352B2769F8B1009DFCBF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D352A2769F8B1009DFCBF /* CustomTextField.swift */; };
@@ -38,6 +40,8 @@
 		33B5FB8A2F349E305E889699 /* Pods_LFP_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFP_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		490CF065FE64923D46D92851 /* Pods-LFP-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFP-project.debug.xcconfig"; path = "Target Support Files/Pods-LFP-project/Pods-LFP-project.debug.xcconfig"; sourceTree = "<group>"; };
 		EA97132866A7B22AA494B031 /* Pods-LFP-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFP-project.release.xcconfig"; path = "Target Support Files/Pods-LFP-project/Pods-LFP-project.release.xcconfig"; sourceTree = "<group>"; };
+		FA02890E27982C0100F6489F /* ProfileInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoViewCell.swift; sourceTree = "<group>"; };
+		FA02890F27982C0100F6489F /* ProfileInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInfoViewCell.xib; sourceTree = "<group>"; };
 		FA18839F2768D60B00ECF554 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		FA3D35282769F53F009DFCBF /* DarkBlueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkBlueButton.swift; sourceTree = "<group>"; };
 		FA3D352A2769F8B1009DFCBF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA02890D27982BE600F6489F /* ProfileInfoViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA02890E27982C0100F6489F /* ProfileInfoViewCell.swift */,
+				FA02890F27982C0100F6489F /* ProfileInfoViewCell.xib */,
+			);
+			path = ProfileInfoViewCell;
+			sourceTree = "<group>";
+		};
 		FA3D35272769F529009DFCBF /* CustomUIObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +150,7 @@
 		FAD70B0A2770593D002FCD61 /* ProfileInfoViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FA02890D27982BE600F6489F /* ProfileInfoViewCell */,
 				FAD70B1127705AE7002FCD61 /* ProfileInfoViewController.swift */,
 			);
 			path = ProfileInfoViewController;
@@ -344,6 +358,7 @@
 				FADACD002767795D00DC77F1 /* LaunchScreen.storyboard in Resources */,
 				FAD70B44277200E3002FCD61 /* AllPartiesViewCell.xib in Resources */,
 				FADACCFD2767795D00DC77F1 /* Assets.xcassets in Resources */,
+				FA02891127982C0100F6489F /* ProfileInfoViewCell.xib in Resources */,
 				FAD70B522774A643002FCD61 /* PlayersViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +429,7 @@
 				FAD70B1227705AE7002FCD61 /* ProfileInfoViewController.swift in Sources */,
 				FAD70BA5277B24A1002FCD61 /* Players.swift in Sources */,
 				FAD70B512774A643002FCD61 /* PlayersViewCell.swift in Sources */,
+				FA02891027982C0100F6489F /* ProfileInfoViewCell.swift in Sources */,
 				FAD70B0E27705AB4002FCD61 /* AllPartiesViewController.swift in Sources */,
 				FAD70C5127872643002FCD61 /* Alerts.swift in Sources */,
 				FAD70B402771FC41002FCD61 /* AllPartiesModel.swift in Sources */,
