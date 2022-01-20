@@ -24,7 +24,6 @@ struct AllPartiesModel: Decodable {
         case minPlayers = "min_players"
         case maxPlayers = "max_players"
         case partymaker
-        case isPriceTotal = "is_price_total"
     }
     
     let id : Int
@@ -40,6 +39,5 @@ struct AllPartiesModel: Decodable {
     let minPlayers: Int
     let maxPlayers: Int
     let partymaker: Int
-    let isPriceTotal: Bool
 }
 

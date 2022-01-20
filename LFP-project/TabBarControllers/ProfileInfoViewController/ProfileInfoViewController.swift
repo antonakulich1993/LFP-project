@@ -10,6 +10,9 @@ import SnapKit
 
 class ProfileInfoViewController: UIViewController {
     
+    var parties: [AllPartiesModel] = []
+    var sortedParties = [Any]()
+    
     let userImage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "person"))
         image.layer.cornerRadius = 22
@@ -18,7 +21,9 @@ class ProfileInfoViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: String(describing: ProfileInfoViewCell.self), bundle: nil), forCellReuseIdentifier: ProfileInfoViewCell.identifier)
         return tableView
     }()
     
@@ -48,23 +53,34 @@ class ProfileInfoViewController: UIViewController {
         return button
     }()
     
-    var navItem: UIBarButtonItem = {
+    var navItemRight: UIBarButtonItem = {
+        return UIBarButtonItem()
+    }()
+    var navItemLeft: UIBarButtonItem = {
         return UIBarButtonItem()
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
-        view.backgroundColor = .white
-        usernameLabel.text = DefaultsManager.username
-        navItem = UIBarButtonItem(title: "Выйти", style: .plain, target: self, action: #selector(logOutAction))
-        navigationItem.rightBarButtonItem = navItem
-        navItem.tintColor = .red
+        getParties()
         configureInterface()
     }
     
     
     func configureInterface() {
+        
+        view.backgroundColor = .white
+        
+        usernameLabel.text = DefaultsManager.username
+        
+        navItemRight = UIBarButtonItem(title: "Выйти", style: .plain, target: self, action: #selector(logOutAction))
+        navigationItem.rightBarButtonItem = navItemRight
+        navItemRight.tintColor = .red
+        
+        navItemLeft = UIBarButtonItem(title: "Редактировать", style: .plain, target: self, action: #selector(editProfile))
+        navigationItem.leftBarButtonItem = navItemLeft
+        navItemLeft.tintColor = .systemBlue
         
         view.addSubview(userImage)
         userImage.snp.makeConstraints { make in
@@ -98,6 +114,11 @@ class ProfileInfoViewController: UIViewController {
             make.bottom.equalToSuperview().offset(0)
         }
     }
+    @objc func editProfile() {
+        let profileSettingsVC = ProfileSettingsViewController()
+        profileSettingsVC.delegate = self
+        navigationController?.pushViewController(profileSettingsVC, animated: true)
+    }
     
     @objc func logOutAction() {
         UserDefaults.standard.removeObject(forKey: "token")
@@ -106,19 +127,53 @@ class ProfileInfoViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let appDelegateWindow = appDelegate?.window
         appDelegateWindow?.rootViewController?.dismiss(animated: false)
-        appDelegateWindow?.rootViewController = LoginViewController()
+        appDelegateWindow?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+    }
+    
+    func getParties() {
+        guard let url = URL(string: "https://lfp.monster/api/party/") else { return }
+        guard let token = DefaultsManager.token else { return }
+        var request = URLRequest(url: url)
+        request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse else { return print("Error")}
+            guard httpResponse.statusCode == 200 else {
+                return print("Error: \(httpResponse.statusCode)")
+            }
+            
+            guard let data = data else { return }
+
+            let result = try? JSONDecoder().decode([AllPartiesModel].self, from: data)
+            guard let result = result else { return }
+            self.parties = result
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }.resume()
     }
 }
 
 extension ProfileInfoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return parties.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileInfoViewCell.identifier, for: indexPath) as? ProfileInfoViewCell else { return  UITableViewCell()}
+        cell.setupCell(parties: parties[indexPath.row])
         return cell
     }
-    
-    
+}
+
+extension ProfileInfoViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}
+
+extension ProfileInfoViewController: ChangeUserSettingsDelegate {
+    func didChange(user: User) {
+        phoneLabel.text = user.phone
+    }
 }
