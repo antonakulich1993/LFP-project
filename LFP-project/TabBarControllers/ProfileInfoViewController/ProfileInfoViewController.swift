@@ -53,24 +53,34 @@ class ProfileInfoViewController: UIViewController {
         return button
     }()
     
-    var navItem: UIBarButtonItem = {
+    var navItemRight: UIBarButtonItem = {
+        return UIBarButtonItem()
+    }()
+    var navItemLeft: UIBarButtonItem = {
         return UIBarButtonItem()
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
-        view.backgroundColor = .white
-        usernameLabel.text = DefaultsManager.username
-        navItem = UIBarButtonItem(title: "Выйти", style: .plain, target: self, action: #selector(logOutAction))
-        navigationItem.rightBarButtonItem = navItem
-        navItem.tintColor = .red
         getParties()
         configureInterface()
     }
     
     
     func configureInterface() {
+        
+        view.backgroundColor = .white
+        
+        usernameLabel.text = DefaultsManager.username
+        
+        navItemRight = UIBarButtonItem(title: "Выйти", style: .plain, target: self, action: #selector(logOutAction))
+        navigationItem.rightBarButtonItem = navItemRight
+        navItemRight.tintColor = .red
+        
+        navItemLeft = UIBarButtonItem(title: "Редактировать", style: .plain, target: self, action: #selector(editProfile))
+        navigationItem.leftBarButtonItem = navItemLeft
+        navItemLeft.tintColor = .systemBlue
         
         view.addSubview(userImage)
         userImage.snp.makeConstraints { make in
@@ -103,6 +113,11 @@ class ProfileInfoViewController: UIViewController {
             make.top.equalTo(allMyPartiesLabel.snp.bottom).offset(10)
             make.bottom.equalToSuperview().offset(0)
         }
+    }
+    @objc func editProfile() {
+        let profileSettingsVC = ProfileSettingsViewController()
+        profileSettingsVC.delegate = self
+        navigationController?.pushViewController(profileSettingsVC, animated: true)
     }
     
     @objc func logOutAction() {
@@ -154,5 +169,11 @@ extension ProfileInfoViewController: UITableViewDataSource {
 extension ProfileInfoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+}
+
+extension ProfileInfoViewController: ChangeUserSettingsDelegate {
+    func didChange(user: User) {
+        phoneLabel.text = user.phone
     }
 }

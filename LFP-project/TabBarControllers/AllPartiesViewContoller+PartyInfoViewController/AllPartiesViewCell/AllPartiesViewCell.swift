@@ -37,7 +37,7 @@ class AllPartiesViewCell: UITableViewCell {
     }
 
     func setupCell(parties: AllPartiesModel) {
-        locationLabel.text = "Адрес: \(parties.location), Игра: \(parties.game)"
+        locationLabel.text = "Адрес: \(parties.location) Игра: \(parties.game)"
         dateLabel.text = "\(parties.date)"
         startTimeLabel.text = "\(parties.time)"
         playersLabel.text = "MAX: \(parties.maxPlayers)"
