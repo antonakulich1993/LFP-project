@@ -14,6 +14,7 @@ enum Alert {
     case addPartyError
     case postPartyError
     case regisrationAccountError
+    case fullParty
     
     
     var controller: UIAlertController {
@@ -36,6 +37,8 @@ enum Alert {
             return "Ошибка создания игры"
         case .regisrationAccountError:
             return "Ошика регистрации"
+        case .fullParty:
+            return "Группа уже сформирована"
         }
     }
     
@@ -51,6 +54,8 @@ enum Alert {
             return "Проверьте правильность заполнения полей"
         case .regisrationAccountError:
             return "Такое имя пользователя уже существует"
+        case .fullParty:
+            return "Извините, нет свободных мест"
         }
     }
 }

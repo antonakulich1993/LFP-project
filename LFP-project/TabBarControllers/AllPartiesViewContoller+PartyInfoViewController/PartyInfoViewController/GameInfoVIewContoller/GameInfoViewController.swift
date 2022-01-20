@@ -149,12 +149,7 @@ class GameInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInterface()
-//        if DefaultsManager.id != party.partymaker {
-            changeButton.isHidden = true
-//        } else {
-//            changeButton.isHidden = false
-//        }
-//        changeButton.addTarget(self, action: #selector(changePartyInfo), for: .touchUpInside)
+        changeButton.isHidden = true
     }
     
     func configureInterface() {
@@ -259,31 +254,4 @@ class GameInfoViewController: UIViewController {
         minPlayersLabel.text = "Минимальноe количество игроков: \(party.minPlayers)"
         maxPlayersLabel.text = "Максимальное количество игроков: \(party.maxPlayers)"
     }
-    
-//    @objc func changePartyInfo() {
-//        let id = party.id
-//
-//        guard let httpBody = try? JSONEncoder().encode(partyModel) else { return }
-//
-//        guard let url = URL(string: "https://lfp.monster/api/party/\(id)/") else { return }
-//        guard let token = DefaultsManager.token else { return }
-//        var request = URLRequest(url: url)
-//        request.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
-//        request.httpMethod = "PUT"
-//        request.httpBody = httpBody
-//
-//        let session = URLSession.shared
-//        session.dataTask(with: request) { data, response, error in
-//            guard  error == nil else {
-//                print(error!)
-//                return
-//            }
-//            guard let httpResponse = response as? HTTPURLResponse else { return print("Error")
-//            }
-//            if httpResponse.statusCode == 200 {
-//                DispatchQueue.main.async {
-//                }
-//            }
-//        }.resume()
-//    }
 }

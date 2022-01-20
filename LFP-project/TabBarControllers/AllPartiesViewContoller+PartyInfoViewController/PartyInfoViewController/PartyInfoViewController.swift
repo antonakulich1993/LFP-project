@@ -38,6 +38,12 @@ class PartyInfoViewController: UIViewController {
         return UIBarButtonItem()
     }()
     
+    func fullPartyAlert() {
+        let alert = Alert.fullParty.controller
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        present(alert, animated: true, completion: nil)
+    }
+    
     var playersViewConrtoller: PlayersViewController?
     var gameInfoViewController = UIViewController()
     
@@ -93,6 +99,10 @@ class PartyInfoViewController: UIViewController {
                     self.navItem.title = "Вступить в группу"
                     self.navItem.tintColor = .systemBlue
                     self.playersViewConrtoller?.getPlayer()
+                }
+            } else if httpResponse.statusCode == 403 {
+                DispatchQueue.main.async {
+                    self.fullPartyAlert()
                 }
             }
         }.resume()
